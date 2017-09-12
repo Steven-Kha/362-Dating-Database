@@ -1,0 +1,62 @@
+import getpass
+
+class person():
+    def __init__(self, gender, bio, password, username, Q1, Q2, Q3, Q4, Q5, Q6, Q7, Q8, Q9, Q10):
+        self.bio=bio
+        self.Q1=Q1
+        self.Q2=Q2
+        self.Q3=Q3
+        self.Q4=Q4
+        self.Q5=Q5
+        self.Q6=Q6
+        self.Q7=Q7
+        self.Q8=Q8
+        self.Q9=Q9
+        self.Q10=Q10
+        self.password=password
+        self.username=username
+        self.gender=gender
+    def viewProfile(self):
+        print(self.username)
+        print(self.bio)
+def login(loginUser, loginPass, student):
+    for i in range(0, len(student)):
+        if loginUser==student[i].username:
+            if loginPass==student[i].password:
+                return student[i]
+    return False
+def menu():
+    print("1. View Profile")
+    print("2. View Matches")
+    print("3. Edit Profile")
+    print("4. Exit")
+def main():
+    exit=False
+    student=[]
+    newUser=person("male", "this is a bio", "testPass", "testUser", None, None, None, None, None, None, None, None, None, None)
+    student.append(newUser)
+    print("1. Returning User")
+    print("2. New User")
+    choice=int(input("Enter choice: "))
+    if choice==1:
+        loginUser=input("Enter username: ")
+        loginPass=getpass.getpass("Enter your password: ")
+        userIn=login(loginUser, loginPass, student)
+        if userIn==False:
+            print("wrong user/pass")
+        else:
+            while exit == False:
+                menu()
+                choice=int(input("Enter choice: "))
+                if choice==1:
+                    None
+                elif choice == 2:
+                    None
+                elif choice==3:
+                    None
+                elif choice==4:
+                    exit = True
+    if choice==2:
+        newUser=person("male", "this is a bio", "Chargers1", "Dash612", None, None, None, None, None, None, None, None, None, None)
+        student.append(newUser)
+main()
