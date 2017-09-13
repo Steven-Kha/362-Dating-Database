@@ -30,6 +30,12 @@ def menu():
     print("2. View Matches")
     print("3. Edit Profile")
     print("4. Exit")
+def newUser():
+    sUserName=input("Enter username: ")
+    sPassword=getpass.getpass("Enter password: ")
+    sGender=input("Enter gender: ")
+    sBio=input("Describe yourself! ")
+    return
 def main():
     exit=False
     student=[]
@@ -57,6 +63,5 @@ def main():
                 elif choice==4:
                     exit = True
     if choice==2:
-        newUser=person("male", "this is a bio", "Chargers1", "Dash612", None, None, None, None, None, None, None, None, None, None)
-        student.append(newUser)
+        newUser()
 main()
