@@ -1,0 +1,34 @@
+Required
+What is your major?
+What year were you born?
+What gender do you identify with? *
+What gender(s) are you looking for? *
+What year are you in college?
+What are your interests?(pick min 5 from list)
+Are you currently employed?
+Would you want your partner to be older or younger than you?
+
+
+
+Optional
+Do you want to eventually have children?
+Do you have kids?
+About how long was your longest relationship?
+Is religion important to you?
+Would you consider dating someone outside your faith?
+What are your hobbies? (multiselect)
+Do you smoke?
+Do you drink more than once a week?
+What do you like to eat?
+What music do you like to hear?
+What is your biggest fear?
+Do you exercise?
+What do you like to do in your spare time?
+What is your height?
+Do you prefer if your partner is taller than you?
+About how long do you want your next relationship to last?
+Do you enjoy discussing politics?
+Would you strongly prefer to date someone of your own skin color / racial background?
+Would you date someone who was in considerable debt?
+Is jealousy healthy in a relationship?
+Could you date someone that is really messy?
