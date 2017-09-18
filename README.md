@@ -8,4 +8,6 @@
 
 9/18: v0.0.4 Updated profile questions <- Kyle
 
-9/18: v0.0.5 Added list of questions, added for loop to iterate through questions, added list to grab question answers
+9/18: v0.0.5 Added list of questions, added for loop to iterate through questions, added list to grab question answers <- Kyle
+
+9/18: v0.0.6 Fixed bug in new user (for loop not iterating correctly) <- Kyle
