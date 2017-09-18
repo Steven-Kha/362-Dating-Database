@@ -95,16 +95,6 @@ Do you like sports?
   Yes
   No
 
-If so, what is your most favorite sport?
-  Football
-  Baseball
-  Basketball
-  Hockey
-  Golf
-  ...
-
-What is your favorite sports team?
-
 
 What is worse: flag-burning or book-burning?
   Flag-burning
