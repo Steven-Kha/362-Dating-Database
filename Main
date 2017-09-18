@@ -1,5 +1,5 @@
 import getpass
-
+import os
 class person(): #class for new users
     def __init__(self, gender, bio, password, birthYear, prefPartnerBirthYear, partnerGender, collegeYear, username, major,  Q1, Q2, Q3, Q4, Q5, Q6, Q7, Q8, Q9, Q10):
         self.bio=bio
@@ -42,7 +42,8 @@ def menu(): #print menu choices
     print("3. Edit Profile")
     print("4. Exit")
 
-def newUser(student): #new user will enter in these choices and they will be passed to class
+def newUser(student, questions): #new user will enter in these choices and they will be passed to class
+    answers=[]
     sUserName=input("Enter username: ")
     sPassword=getpass.getpass("Enter password: ")
     sBirthYear=input("Enter your birth year: ")
@@ -52,13 +53,24 @@ def newUser(student): #new user will enter in these choices and they will be pas
     sPartnerGender=input("What gender are you looking for (m/m, m/f, f/m, ff)? ")
     sPrefPartnerBirhtYear=input("Would you like your partner to be older or younger than you? ")
     sBio=input("Describe yourself! ")
+    os.system('cls')
+    for i in range(0, len(questions)):
+        print(questions[i])
+        print("1. Yes")
+        print("2. No")
+        selection=input("Enter selection: ")
+        if selection is not "1" or selection is not "2":
+            print("Invalid answer, try again!")
+            i-=1
+        else:
+            answer[i]=selection
+        os.system('cls')
     return
 
 def main():
-
-
     exit=False #end of menu loop
     student=[] #list of student objects
+    questions=["Do you want to eventually have children?", "Do you have kids?", "About how long was your longest relationship?", "Is religion important to you?", "Would you consider dating someone outside your faith?", "Do you smoke?", "Do you drink more than once a week?", "Do you exercise?", "Do you prefer if your partner is taller than you?", "Do you enjoy discussing politics?"]
     newUse=person("male", "this is a bio", "testPass", "1993", "1995", "f", "Senior", "testUser", "Computer Science", None, None, None, None, None, None, None, None, None, None) #used only for tests, will be removed in final product
     student.append(newUser) #will be removed in final product
     print("1. Returning User")
@@ -83,7 +95,7 @@ def main():
                 elif choice==4:
                     exit = True
     if choice==2:
-        newUser(student) #new user goes to enter their info then gets promped with the menu
+        newUser(student, questions) #new user goes to enter their info then gets promped with the menu
         while exit==False:
             menu()
             choice=(input("Enter choice: "))
