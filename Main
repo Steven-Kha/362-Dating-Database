@@ -1,5 +1,6 @@
 import getpass
 import os
+import time
 class person(): #class for new users
     def __init__(self, gender, bio, password, birthYear, prefPartnerBirthYear, partnerGender, collegeYear, username, major,  Q1, Q2, Q3, Q4, Q5, Q6, Q7, Q8, Q9, Q10):
         self.bio=bio
@@ -44,7 +45,7 @@ def menu(): #print menu choices
 
 def newUser(student, questions): #new user will enter in these choices and they will be passed to class
     answers=[0]*11
-    sUserName=input("Enter username: ")
+    """ sUserName=input("Enter username: ")
     sPassword=getpass.getpass("Enter password: ")
     sBirthYear=input("Enter your birth year: ")
     sGender=input("Enter gender: ")
@@ -52,13 +53,12 @@ def newUser(student, questions): #new user will enter in these choices and they 
     sCollegeYear=input("What year are you in college? ")
     sPartnerGender=input("What gender are you looking for (m/m, m/f, f/m, ff)? ")
     sPrefPartnerBirhtYear=input("Would you like your partner to be older or younger than you? ")
-    sBio=input("Describe yourself! ")
+    sBio=input("Describe yourself! ") """
     os.system('cls')
     i=0
     while i<len(questions):
-        print(questions[i])
+        print(str(i+1)+". "+str(questions[i]))
         i+=1
-        print(i)
         print("1. Yes")
         print("2. No")
         selection=int(input("Enter selection: "))
@@ -68,7 +68,7 @@ def newUser(student, questions): #new user will enter in these choices and they 
             print(i)
         else:
             answers[i]=selection
-        os.system('cls')
+            os.system('cls')
     return
 
 def main():
