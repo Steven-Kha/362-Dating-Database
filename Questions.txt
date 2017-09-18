@@ -104,3 +104,41 @@ If so, what is your most favorite sport?
   ...
 
 What is your favorite sports team?
+
+
+What is worse: flag-burning or book-burning?
+  Flag-burning
+  Book-burning
+Which is your favorite holiday: Christmas or Halloween?
+  Christmas 
+  Halloween
+What can you not live without: talk or text?
+  Talk
+  Text
+Do you speak a language other than English?
+  Yes
+  No
+Pencil or pen?
+  Pencil
+  Pen
+Which do you prefer: cats or dogs?
+  Cats
+  Dogs
+When you graduate will you stay in CA or leave?
+  Stay
+  Leave
+Which do you prefer: CA summer or CA winter?
+  Summer
+  Winter
+Do you usually prefer: the book or the movie?
+  The book
+  The movie
+Preferred color: red or blue?
+  Red
+  Blue
+Do you like watching sports on TV?
+  Yes
+  No
+Have you ever traveled outside the US?
+  Yes
+  No
