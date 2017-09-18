@@ -65,7 +65,6 @@ def newUser(student, questions): #new user will enter in these choices and they 
         if selection>2 or selection<1:
             print("Invalid answer, try again!")
             i-=1
-            print(i)
         else:
             answers[i]=selection
             os.system('cls')
