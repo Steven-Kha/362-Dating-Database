@@ -11,28 +11,28 @@ Would you want your partner to be older or younger than you?
 
 
 Optional
-Do you want to eventually have children?
+1. Do you want to eventually have children?
   Yes
   No
-Do you have kids?
+2. Do you have kids?
   Yes
   No
-About how long was your longest relationship?
+3. About how long was your longest relationship?
   <1 Month
   <6 Months
   >1 year
   >3 years
-Is religion important to you?
+4. Is religion important to you?
   Yes
   No
-Would you consider dating someone outside your faith?
+5. Would you consider dating someone outside your faith?
   Yes
   No
-What are your hobbies? (multiselect)
-Do you smoke?
+6. What are your hobbies? (multiselect)
+7. Do you smoke?
   Yes
   No
-Do you drink more than once a week?
+8. Do you drink more than once a week?
   Yes
   No
 What do you like to eat?
