@@ -28,23 +28,23 @@ Optional
 5. Would you consider dating someone outside your faith?
   Yes
   No
-6. What are your hobbies? (multiselect)
-7. Do you smoke?
+ What are your hobbies? (multiselect)
+6. Do you smoke?
   Yes
   No
-8. Do you drink more than once a week?
+7. Do you drink more than once a week?
   Yes
   No
 What do you like to eat?
 What music do you like to hear?
 What is your biggest fear?
-Do you exercise?
+8. Do you exercise?
   Yes
   No
 What do you like to do in your spare time?
 What is your height?
   Mandatory?
-Do you prefer if your partner is taller than you?
+9. Do you prefer if your partner is taller than you?
   Yes
   No
 About how long do you want your next relationship to last?
@@ -52,10 +52,11 @@ About how long do you want your next relationship to last?
   <6 Months
   >1 year
   >3 years
-Do you enjoy discussing politics?
+10. Do you enjoy discussing politics?
   Yes
   No
-Would you strongly prefer to date someone of your own skin color / racial background?
+  
+  Would you strongly prefer to date someone of your own skin color / racial background?
   Yes
   No
 Would you date someone who was in considerable debt?
