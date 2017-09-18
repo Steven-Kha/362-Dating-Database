@@ -44,7 +44,7 @@ def menu(): #print menu choices
 
 def newUser(student, questions): #new user will enter in these choices and they will be passed to class
     answers=[0]*11
-    """ sUserName=input("Enter username: ")
+    sUserName=input("Enter username: ")
     sPassword=getpass.getpass("Enter password: ")
     sBirthYear=input("Enter your birth year: ")
     sGender=input("Enter gender: ")
@@ -52,7 +52,7 @@ def newUser(student, questions): #new user will enter in these choices and they 
     sCollegeYear=input("What year are you in college? ")
     sPartnerGender=input("What gender are you looking for (m/m, m/f, f/m, ff)? ")
     sPrefPartnerBirhtYear=input("Would you like your partner to be older or younger than you? ")
-    sBio=input("Describe yourself! ") """
+    sBio=input("Describe yourself! ")
     os.system('cls')
     i=0
     while i<len(questions):
