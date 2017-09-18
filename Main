@@ -43,8 +43,8 @@ def menu(): #print menu choices
     print("4. Exit")
 
 def newUser(student, questions): #new user will enter in these choices and they will be passed to class
-    answers=[]
-    sUserName=input("Enter username: ")
+    answers=[0]*11
+    """ sUserName=input("Enter username: ")
     sPassword=getpass.getpass("Enter password: ")
     sBirthYear=input("Enter your birth year: ")
     sGender=input("Enter gender: ")
@@ -52,18 +52,22 @@ def newUser(student, questions): #new user will enter in these choices and they 
     sCollegeYear=input("What year are you in college? ")
     sPartnerGender=input("What gender are you looking for (m/m, m/f, f/m, ff)? ")
     sPrefPartnerBirhtYear=input("Would you like your partner to be older or younger than you? ")
-    sBio=input("Describe yourself! ")
+    sBio=input("Describe yourself! ") """
     os.system('cls')
-    for i in range(0, len(questions)):
+    i=0
+    while i<len(questions):
         print(questions[i])
+        i+=1
+        print(i)
         print("1. Yes")
         print("2. No")
-        selection=input("Enter selection: ")
-        if selection is not "1" or selection is not "2":
+        selection=int(input("Enter selection: "))
+        if selection>2 or selection<1:
             print("Invalid answer, try again!")
             i-=1
+            print(i)
         else:
-            answer[i]=selection
+            answers[i]=selection
         os.system('cls')
     return
 
