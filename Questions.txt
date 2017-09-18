@@ -2,10 +2,32 @@ Required
 What is your major?
 What year were you born?
 What gender do you identify with? *
+  1. Male
+  2. Female
+  3. Non-Binary
+  4. Transgender
+  5. Other
 What gender(s) are you looking for? *
+  1. Male
+  2. Female
+  3. Non-Binary
+  4. Transgender
+  5. Other
 What year are you in college?
 What are your interests?(pick min 5 from list)
+   Sports
+   Video Games
+   Partying
+   Watching TV / Movies
+   Reading Books
+   Computers
+   Social Media
+   Dating
+   
 Are you currently employed?
+  Yes
+  No
+  
 Would you want your partner to be older or younger than you?
 
 
@@ -68,3 +90,17 @@ Is jealousy healthy in a relationship?
 Could you date someone that is really messy?
   Yes
   No
+  
+Do you like sports?
+  Yes
+  No
+
+If so, what is your most favorite sport?
+  Football
+  Baseball
+  Basketball
+  Hockey
+  Golf
+  ...
+
+What is your favorite sports team?
