@@ -11,3 +11,5 @@
 9/18: v0.0.5 Added list of questions, added for loop to iterate through questions, added list to grab question answers <- Kyle
 
 9/18: v0.0.6 Fixed bug in new user (for loop not iterating correctly) <- Kyle
+
+9/20: v0.06b added comments about if we should clear screen on questions user messes up on
