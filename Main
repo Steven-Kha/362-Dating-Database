@@ -26,11 +26,129 @@ class person(): #class for new users
     def viewProfile(self): #view profile
         print(self.username)
         print(self.bio)
+    def editQuestion(self, change, questions): #edit questions
+        change=int(change)
+        if change==1:
+            print(questions[0])
+            print("1. Yes")
+            print("2. No")
+            choice=int(input("Enter selection: "))
+            self.Q1=choice
+        elif change==2:
+            print(questions[1])
+            print("1. Yes")
+            print("2. No")
+            choice=int(input("Enter selection:"))
+            self.Q2=choice
+        elif change==3:
+            print(questions[2])
+            print("1. Yes")
+            print("2. No")
+            choice=int(input("Enter selection: "))
+            self.Q3=choice
+        elif change==4:
+            print(questions[3])
+            print("1. Yes")
+            print("2. No")
+            choice=int(input("Enter selection: "))
+            self.Q4=choice
+        elif change==5:
+            print(questions[4])
+            print("1. Yes")
+            print("2. No")
+            choice=int(input("Enter selection: "))
+            self.Q5=choice
+        elif change==6:
+            print(questions[5])
+            print("1. Yes")
+            print("2. No")
+            choice=int(input("Enter selection: "))
+            self.Q6=choice
+        elif change==7:
+            print(questions[6])
+            print("1. Yes")
+            print("2. No")
+            choice=int(input("Enter selection: "))
+            self.Q7 = choice
+        elif change==8:
+            print(questions[7])
+            print("1. Yes")
+            print("2. No")
+            choice=int(input("Enter selection: "))
+            self.Q8=choice
+        elif change==9:
+            print(questions[8])
+            print("1. Yes")
+            print("2. No")
+            choice=int(input("Enter selection: "))
+            self.Q9 = choice
+        elif change==10:
+            print(questions[9])
+            print("1. Yes")
+            print("2. No")
+            choice=int(input("Enter selection: "))
+            self.Q10=choice
+        else:
+            print("Invalid question number")
+    def viewAnswers(self, questions): #view answers
+        print("1. "+questions[0])
+        if self.Q1==1:
+            print("Yes")
+        else:
+            print("No")
+        print("2. "+questions[1])
+        if self.Q2==1:
+            print("Yes")
+        else:
+            print("No")
+        print("3. "+questions[2])
+        if self.Q3==1:
+            print("Yes")
+        else:
+            print("No")
+        print("4. "+questions[3])
+        if self.Q4==1:
+            print("Yes")
+        else:
+            print("No")
+        print("5. "+questions[4])
+        if self.Q5==1:
+            print("Yes")
+        else:
+            print("No")
+        print("6. "+questions[5])
+        if self.Q6==1:
+            print("Yes")
+        else:
+            print("No")
+        print("7. "+questions[6])
+        if self.Q7==1:
+            print("Yes")
+        else:
+            print("No")
+        print("8. "+questions[7])
+        if self.Q8==1:
+            print("Yes")
+        else:
+            print("No")
+        print("9. "+questions[8])
+        if self.Q9==1:
+            print("Yes")
+        else:
+            print("No")
+        print("10. "+questions[9])
+        if self.Q10==1:
+            print("Yes")
+        else:
+            print("No")
 
 #if we can make a person array we can write a for loop that write out each person
 #into the txt file
 
 def login(loginUser, loginPass, student): #login to the database
+    if not student: #checks if list is empty
+        print("No users in database")
+        return
     for i in range(0, len(student)):
         if loginUser==student[i].username:
             if loginPass==student[i].password:
@@ -41,7 +159,9 @@ def menu(): #print menu choices
     print("1. View Profile")
     print("2. View Matches")
     print("3. Edit Profile")
-    print("4. Exit")
+    print("4. Edit Question Answers")
+    print("5. View Answers")
+    print("6. Exit")
 
 def newUser(student, questions): #new user will enter in these choices and they will be passed to class
     answers=[0]*11
@@ -55,28 +175,33 @@ def newUser(student, questions): #new user will enter in these choices and they 
     sPrefPartnerBirthYear=input("Would you like your partner to be older or younger than you? ")
     sBio=input("Describe yourself! ")
     os.system('cls')
-    i=0
-    while i<len(questions):
-        print(str(i+1)+". "+str(questions[i]))
-        i+=1
-        print("1. Yes")
-        print("2. No")
-        selection=int(input("Enter selection: "))
-        if selection>2 or selection<1:
-            print("Invalid answer, try again!")
-            i-=1
+    choice=input("Would you like to answer the questions now or answer them later?")
+    if choice[0].lower() == 'y':
+        i=0
+        while i<len(questions):
+            print(str(i+1)+". "+str(questions[i]))
+            i+=1
+            print("1. Yes")
+            print("2. No")
+            selection=int(input("Enter selection: "))
+            if selection>2 or selection<1:
+                print("Invalid answer, try again!")
+                i-=1
             #should we reprint the questions without clearing the screen? It will look cluttered?
             # perhaps a new line of dashes and the word retry question in CAPS? 
-        else:
-            answers[i]=selection
-            os.system('cls')
-    return
+            else:
+                answers[i]=selection
+                os.system('cls')
+        newUser=person(sGender, sBio, sPassword, sBirthYear, sPrefPartnerBirthYear, sPartnerGender, sCollegeYear, sUserName, sMajor, answers[1], answers[2], answers[3], answers[4], answers[5], answers[6], answers[7], answers[8], answers[9],answers[10])
+        return
+    elif choice[0].lower() == 'n':
+        newUser=person(sGender, sBio, sPassword, sBirthYear, sPrefPartnerBirthYear, sPartnerGender, sCollegeYear, sUserName, sMajor,None,None,None,None,None,None,None,None,None,None)
 
 def main():
     exit=False #end of menu loop
     student=[] #list of student objects
     questions=["Do you want to eventually have children?", "Do you have kids?", "About how long was your longest relationship?", "Is religion important to you?", "Would you consider dating someone outside your faith?", "Do you smoke?", "Do you drink more than once a week?", "Do you exercise?", "Do you prefer if your partner is taller than you?", "Do you enjoy discussing politics?"]
-    newUse=person("male", "this is a bio", "testPass", "1993", "1995", "f", "Senior", "testUser", "Computer Science", None, None, None, None, None, None, None, None, None, None) #used only for tests, will be removed in final product
+    newUser=person("male", "this is a bio", "testPass", "1993", "1995", "f", "Senior", "testUser", "Computer Science", 1, 1, 2, 2, 1, 1, 2, 1, 1, 2) #used only for tests, will be removed in final product
     student.append(newUser) #will be removed in final product
     print("1. Returning User")
     print("2. New User")
@@ -93,11 +218,16 @@ def main():
                 choice=int(input("Enter choice: "))
                 if choice==1:
                     None
-                elif choice == 2:
+                elif choice==2:
                     None
                 elif choice==3:
                     None
                 elif choice==4:
+                    choice=input("Which question number would you like to change?\n")
+                    userIn.editQuestion(choice,questions)
+                elif choice==5:
+                    userIn.viewAnswers(questions)
+                elif choice==6:
                     exit = True
     if choice==2:
         newUser(student, questions) #new user goes to enter their info then gets promped with the menu
