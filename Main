@@ -201,8 +201,8 @@ def main():
     exit=False #end of menu loop
     student=[] #list of student objects
     questions=["Do you want to eventually have children?", "Do you have kids?", "About how long was your longest relationship?", "Is religion important to you?", "Would you consider dating someone outside your faith?", "Do you smoke?", "Do you drink more than once a week?", "Do you exercise?", "Do you prefer if your partner is taller than you?", "Do you enjoy discussing politics?"]
-    newUser=person("male", "this is a bio", "testPass", "1993", "1995", "f", "Senior", "testUser", "Computer Science", 1, 1, 2, 2, 1, 1, 2, 1, 1, 2) #used only for tests, will be removed in final product
-    student.append(newUser) #will be removed in final product
+    newUse=person("male", "this is a bio", "testPass", "1993", "1995", "f", "Senior", "testUser", "Computer Science", 1, 1, 2, 2, 1, 1, 2, 1, 1, 2) #used only for tests, will be removed in final product
+    student.append(newUse) #will be removed in final product
     print("1. Returning User")
     print("2. New User")
     choice=int(input("Enter choice: "))
