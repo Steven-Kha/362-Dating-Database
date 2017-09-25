@@ -202,6 +202,10 @@ def main():
     student=[] #list of student objects
     questions=["Do you want to eventually have children?", "Do you have kids?", "About how long was your longest relationship?", "Is religion important to you?", "Would you consider dating someone outside your faith?", "Do you smoke?", "Do you drink more than once a week?", "Do you exercise?", "Do you prefer if your partner is taller than you?", "Do you enjoy discussing politics?"]
     newUse=person("male", "this is a bio", "testPass", "1993", "1995", "f", "Senior", "testUser", "Computer Science", 1, 1, 2, 2, 1, 1, 2, 1, 1, 2) #used only for tests, will be removed in final product
+    luis=person("male", "My name is Luis. I work at a department store taking out product.", "12345", "09/09/1993", "1993", "male", "Junior", "wicho", "mechanical engineering", 1, 2, 1, 2, 1, 2, 2, 2, 2, 2)
+    kyle=person("male", "I like playing video games and messing with computers!", "Password1", "06/12/1993", "1995", "female", "Senior", "Dash612", "Computer Science", 2, 2, 1, 2, 1, 2, 2, 2, 2, 1)
+    student.append(luis)
+    student.append(kyle)
     student.append(newUse) #will be removed in final product
     print("1. Returning User")
     print("2. New User")
