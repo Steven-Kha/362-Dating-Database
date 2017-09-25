@@ -15,3 +15,6 @@
 9/20: v0.06b added comments about if we should clear screen on questions user messes up on <- who did this?
 
 9/20: v0.1.0 Added two new functions to class, one in which the user can edit an answer they have already inputted and another in which the user can view their answers to the questions. Updated menu accordingly. <- Kyle
+
+9/25: v0.1.1 Added myself and my friend to the database in order to try to begin programming algorithm. <-Kyle
+
