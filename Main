@@ -26,6 +26,8 @@ class person(): #class for new users
     def viewProfile(self): #view profile
         print(self.username)
         print(self.bio)
+        print(self.major)
+        print(self.gender)
     def editQuestion(self, change, questions): #edit questions
         change=int(change)
         if change==1:
@@ -141,6 +143,41 @@ class person(): #class for new users
             print("Yes")
         else:
             print("No")
+    def getMatches(self, students):
+        matches=[]
+        for i in range(0,len(students)):
+            points=0
+            if self.username==students[i].username:
+                continue
+            if self.partnerGender != students[i].gender:
+                continue
+            if self.Q1==students[i].Q1:
+                points+=1
+            if self.Q2==students[i].Q2:
+                points+=1
+            if self.Q3==students[i].Q3:
+                points+=1
+            if self.Q4==students[i].Q4:
+                points+=1
+            if self.Q5==students[i].Q5:
+                points+=1
+            if self.Q5==students[i].Q6:
+                points+=1
+            if self.Q6==students[i].Q6:
+                points+=1
+            if self.Q7==students[i].Q7:
+                points+=1
+            if self.Q8==students[i].Q8:
+                points+=1
+            if self.Q9==students[i].Q9:
+                points+=1
+            if self.Q10==students[i].Q10:
+                points+=1
+            if points>=6:
+                matches.append(students[i].username)
+        return matches
+
+                
 
 #if we can make a person array we can write a for loop that write out each person
 #into the txt file
@@ -221,9 +258,10 @@ def main():
                 menu()
                 choice=int(input("Enter choice: "))
                 if choice==1:
-                    None
+                    userIn.viewProfile()
                 elif choice==2:
-                    None
+                    viewMatch=userIn.getMatches(student)
+                    print(viewMatch)
                 elif choice==3:
                     None
                 elif choice==4:
