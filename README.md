@@ -18,3 +18,6 @@
 
 9/25: v0.1.1 Added myself and my friend to the database in order to try to begin programming algorithm. <-Kyle
 
+9/26: v0.2.0 Added first version of function to find matches, added options to view profile and view matches. <-Kyle
+
+
