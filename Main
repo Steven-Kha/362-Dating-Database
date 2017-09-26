@@ -175,6 +175,8 @@ class person(): #class for new users
                 points+=1
             if points>=6:
                 matches.append(students[i].username)
+            if len(matches)>=5:
+                break
         return matches
 
                 
