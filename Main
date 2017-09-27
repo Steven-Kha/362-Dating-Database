@@ -2,7 +2,7 @@ import getpass
 import os
 import time
 class person(): #class for new users
-    def __init__(self, gender, bio, password, birthYear, prefPartnerBirthYear, partnerGender, collegeYear, username, major,  Q1, Q2, Q3, Q4, Q5, Q6, Q7, Q8, Q9, Q10):
+    def __init__(self, gender, bio, password, birthYear, prefPartnerBirthYear, partnerGender, collegeYear, username, major, email,  Q1, Q2, Q3, Q4, Q5, Q6, Q7, Q8, Q9, Q10):
         self.bio=bio
         self.Q1=Q1
         self.Q2=Q2
@@ -14,6 +14,7 @@ class person(): #class for new users
         self.Q8=Q8
         self.Q9=Q9
         self.Q10=Q10
+        self.email=email
         self.password=password
         self.username=username
         self.gender=gender
@@ -149,7 +150,7 @@ class person(): #class for new users
             points=0
             if self.username==students[i].username:
                 continue
-            if self.partnerGender != students[i].gender:
+            if self.partnerGender!=students[i].gender:
                 continue
             if self.Q1==students[i].Q1:
                 points+=1
@@ -206,6 +207,14 @@ def newUser(student, questions): #new user will enter in these choices and they 
     answers=[0]*11
     sUserName=input("Enter username: ")
     sPassword=getpass.getpass("Enter password: ")
+    sEmail=input("Enter your CSUF email: ")
+    if "@csu.fullerton.edu" not in sEmail:
+        emailcorrect=False
+        while emailcorrect==False:
+            sEmail=input("Invalid email, must be a CSUF email, try again: ")
+            if "@csu.fullerton.edu" not in sEmail:
+                continue
+            emailcorrect=True
     sBirthYear=input("Enter your birth year: ")
     sGender=input("Enter gender: ")
     sMajor=input("Enter major: ")
@@ -235,17 +244,24 @@ def newUser(student, questions): #new user will enter in these choices and they 
         return
     elif choice[0].lower() == 'n':
         newUser=person(sGender, sBio, sPassword, sBirthYear, sPrefPartnerBirthYear, sPartnerGender, sCollegeYear, sUserName, sMajor,None,None,None,None,None,None,None,None,None,None)
-
-def main():
-    exit=False #end of menu loop
-    student=[] #list of student objects
-    questions=["Do you want to eventually have children?", "Do you have kids?", "About how long was your longest relationship?", "Is religion important to you?", "Would you consider dating someone outside your faith?", "Do you smoke?", "Do you drink more than once a week?", "Do you exercise?", "Do you prefer if your partner is taller than you?", "Do you enjoy discussing politics?"]
-    newUse=person("male", "this is a bio", "testPass", "1993", "1995", "f", "Senior", "testUser", "Computer Science", 1, 1, 2, 2, 1, 1, 2, 1, 1, 2) #used only for tests, will be removed in final product
-    luis=person("male", "My name is Luis. I work at a department store taking out product.", "12345", "09/09/1993", "1993", "male", "Junior", "wicho", "mechanical engineering", 1, 2, 1, 2, 1, 2, 2, 2, 2, 2)
-    kyle=person("male", "I like playing video games and messing with computers!", "Password1", "06/12/1993", "1995", "female", "Senior", "Dash612", "Computer Science", 2, 2, 1, 2, 1, 2, 2, 2, 2, 1)
+def initTests(student):
+    testMatch1=person("female", "test", "4", "1995", "1995", "male", "Senior", "3", "Computer Science", "test1@csu.fullerton.edu", 1,1,1,1,1,1,1,1,1,1)
+    testMatch2=person("male", "test", "2", "1995", "1995", "female", "Senior", "1", "Comp Sci", "test2@csu.fullerton.edu", 1,1,1,1,1,1,1,1,1,1)
+    newUse=person("male", "this is a bio", "testPass", "1993", "1995", "f", "Senior", "testUser", "Computer Science", "newuse@csu.fullerton.edu", 1, 1, 2, 2, 1, 1, 2, 1, 1, 2) #used only for tests, will be removed in final product
+    luis=person("male", "My name is Luis. I work at a department store taking out product.", "12345", "09/09/1993", "1993", "male", "Junior", "wicho", "mechanical engineering", "wicho@csu.fullerton.edu", 1, 2, 1, 2, 1, 2, 2, 2, 2, 2)
+    kyle=person("male", "I like playing video games and messing with computers!", "Password1", "06/12/1993", "1995", "female", "Senior", "Dash612", "Computer Science", "kylejulien@csu.fullerton.edu", 2, 2, 1, 2, 1, 2, 2, 2, 2, 1)
+    student.append(testMatch1)
+    student.append(testMatch2)
     student.append(luis)
     student.append(kyle)
     student.append(newUse) #will be removed in final product
+    return
+def main():
+    exit=False #end of menu loop
+    student=[] #list of student objects
+    viewMatch=[]
+    questions=["Do you want to eventually have children?", "Do you have kids?", "About how long was your longest relationship?", "Is religion important to you?", "Would you consider dating someone outside your faith?", "Do you smoke?", "Do you drink more than once a week?", "Do you exercise?", "Do you prefer if your partner is taller than you?", "Do you enjoy discussing politics?"]
+    initTests(student)
     print("1. Returning User")
     print("2. New User")
     choice=int(input("Enter choice: "))
@@ -262,8 +278,12 @@ def main():
                 if choice==1:
                     userIn.viewProfile()
                 elif choice==2:
-                    viewMatch=userIn.getMatches(student)
-                    print(viewMatch)
+                    if len(viewMatch)==0:
+                        viewMatch=userIn.getMatches(student)
+                    if len(viewMatch)==0:
+                        print("No matches :(")
+                    else:
+                        print(*viewMatch, sep="\n")
                 elif choice==3:
                     None
                 elif choice==4:
