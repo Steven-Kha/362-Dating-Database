@@ -24,3 +24,4 @@
 
 9/27: v0.3.1 Fixed crash during new user creation. Added skeleton function for profile editing. <-Kyle
 
+9/27: v0.3.2 Added menu options to new user. 
