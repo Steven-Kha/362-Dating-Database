@@ -22,5 +22,5 @@
 
 9/27: v0.3.0 Tested matching function, appears to be working fine. Added email entry when creating new account. Added check to confirm that CSUF email is being used. Moved test users into function for easier deletion later. <-Kyle
 
-
+9/27: v0.3.1 Fixed crash during new user creation. Added skeleton function for profile editing. <-Kyle
 
