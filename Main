@@ -271,6 +271,7 @@ def initTests(student):
     newUse=person("male", "this is a bio", "testPass", "1993", "1995", "f", "Senior", "testUser", "Computer Science", "newuse@csu.fullerton.edu", 1, 1, 2, 2, 1, 1, 2, 1, 1, 2) #used only for tests, will be removed in final product
     luis=person("male", "My name is Luis. I work at a department store taking out product.", "12345", "09/09/1993", "1993", "male", "Junior", "wicho", "mechanical engineering", "wicho@csu.fullerton.edu", 1, 2, 1, 2, 1, 2, 2, 2, 2, 2)
     kyle=person("male", "I like playing video games and messing with computers!", "Password1", "06/12/1993", "1995", "female", "Senior", "Dash612", "Computer Science", "kylejulien@csu.fullerton.edu", 2, 2, 1, 2, 1, 2, 2, 2, 2, 1)
+    Arshi=person("male", "I like playing basketball and 2k!", "bruhcmon", "03/10/1993", "1995", "female", "Senior", "Arshifoo", "Computer Science", "arshi95@csu.fullerton.edu", 2, 2, 1, 2, 1, 2, 2, 2, 2, 1)
     student.append(testMatch1)
     student.append(testMatch2)
     student.append(luis)
