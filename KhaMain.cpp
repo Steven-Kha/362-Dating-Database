@@ -168,7 +168,7 @@ int main() {
 					cin >> authorFirst >> authorLast>> ws; 
 					
 				
-					getline(cin, bookTitle);
+					getline(cin, bookTitle); 
 
 					found = false;
 					find = 0;
