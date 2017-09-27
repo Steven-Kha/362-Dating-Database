@@ -34,7 +34,7 @@ class person(): #class for new users
         if change==1:
             print(questions[0])
             print("1. Yes")
-            print("2. No")
+            print("2. No") 
             choice=int(input("Enter selection: "))
             self.Q1=choice
         elif change==2:
