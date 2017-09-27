@@ -20,4 +20,7 @@
 
 9/26: v0.2.0 Added first version of function to find matches, added options to view profile and view matches. <-Kyle
 
+9/27: v0.3.0 Tested matching function, appears to be working fine. Added email entry when creating new account. Added check to confirm that CSUF email is being used. Moved test users into function for easier deletion later. <-Kyle
+
+
 
