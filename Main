@@ -244,7 +244,7 @@ def newUser(student, questions): #new user will enter in these choices and they 
     sPrefPartnerBirthYear=input("Would you like your partner to be older or younger than you? ")
     sBio=input("Describe yourself! ")
     os.system('cls')
-    choice=input("Would you like to answer the questions now or answer them later?")
+    choice=input("Would you like to answer the questions now or answer them later? Y/N: ")
     if choice[0].lower() == 'y':
         i=0
         while i<len(questions):
