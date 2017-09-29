@@ -276,7 +276,7 @@ def initTests(student):
     Arshi=person("male", "I like playing basketball and 2k!", "bruhcmon", "03/10/1993", "1995", "female", "Senior", "Arshifoo", "Computer Science", "arshi95@csu.fullerton.edu", 2, 2, 1, 2, 1, 2, 2, 2, 2, 1)
     Jay=person("male", "I like to listen to rap music and respecting women", "444+222", "12/6/1996", "1994", "female", "Sophomore", "jaydiddy69", "Women's Studies", "jaydiddy7272@csu.fullerton.edu", 1, 1, 1, 1, 1, 1, 1, 1, 1, 1)  
     steven = person("male", "I like to eat apples and bananas", "1234", "05/07/1994", " 1996", "female", "Junior", "skha", "Computer Science", "stevenvkha@csu.fullerton.edu", 1, 2, 2, 1, 1, 2, 1, 1, 1, 1)
-    elizabeth = person("female", "I sell propane and propane accessories", "HelloWorld", "1987", "1987", "female", "Grad", "MQ", "Computer Science", "elizabethchen@csu.fullerton.edu", 2, 2, 1, 2, 2, 2, 1, 2, 1)
+    elizabeth = person("female", "I sell propane and propane accessories", "HelloWorld", "1987", "1987", "female", "Grad", "MQ", "Computer Science", "elizabethchen@csu.fullerton.edu", 2, 2, 1, 2, 2, 2, 1, 2, 1, 1)
     student.append(testMatch1)
     student.append(testMatch2)
     student.append(luis)
@@ -291,39 +291,42 @@ def main():
     exit=False #end of menu loop
     student=[] #list of student objects
     viewMatch=[]
+    loginOver=False
     questions=["Do you want to eventually have children?", "Do you have kids?", "Was your longest relationship longer than a year?", "Is religion important to you?", "Would you consider dating someone outside your faith?", "Do you smoke?", "Do you drink more than once a week?", "Do you exercise?", "Do you prefer if your partner is taller than you?", "Do you enjoy discussing politics?"]
     initTests(student)
     print("1. Returning User")
     print("2. New User")
     choice=int(input("Enter choice: "))
-    if choice==1: #a returning user enters username and password
-        loginUser=input("Enter username: ") 
-        loginPass=getpass.getpass("Enter your password: ")
-        userIn=login(loginUser, loginPass, student)
-        if userIn==False: #if the input comes back false, user does not get to login
-            print("wrong user/pass")
-        else:
-            while exit == False: #else the user gets prompted with menu
-                menu()
-                choice=int(input("Enter choice: "))
-                if choice==1:
-                    userIn.viewProfile()
-                elif choice==2:
-                    if len(viewMatch)==0:
-                        viewMatch=userIn.getMatches(student)
-                    if len(viewMatch)==0:
-                        print("No matches :(")
-                    else:
-                        print(*viewMatch, sep="\n")
-                elif choice==3:
-                    None
-                elif choice==4:
-                    choice=input("Which question number would you like to change?\n")
-                    userIn.editQuestion(choice,questions)
-                elif choice==5:
-                    userIn.viewAnswers(questions)
-                elif choice==6:
-                    exit = True
+    while loginOver==False:
+        if choice==1: #a returning user enters username and password
+            loginUser=input("Enter username: ") 
+            loginPass=getpass.getpass("Enter your password: ")
+            userIn=login(loginUser, loginPass, student)
+            if userIn==False: #if the input comes back false, user does not get to login
+                print("wrong user/pass")
+            else:
+                loginOver=True
+                while exit == False: #else the user gets prompted with menu
+                    menu()
+                    choice=int(input("Enter choice: "))
+                    if choice==1:
+                        userIn.viewProfile()
+                    elif choice==2:
+                        if len(viewMatch)==0:
+                            viewMatch=userIn.getMatches(student)
+                        if len(viewMatch)==0:
+                            print("No matches :(")
+                        else:
+                            print(*viewMatch, sep="\n")
+                    elif choice==3:
+                        None
+                    elif choice==4:
+                        choice=input("Which question number would you like to change?\n")
+                        userIn.editQuestion(choice,questions)
+                    elif choice==5:
+                        userIn.viewAnswers(questions)
+                    elif choice==6:
+                        exit = True
     if choice==2:
         userIn=newUser(student, questions) #new user goes to enter their info then gets promped with the menu
         while exit==False:
