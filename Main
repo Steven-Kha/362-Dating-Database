@@ -297,6 +297,7 @@ def main():
     print("1. Returning User")
     print("2. New User")
     choice=int(input("Enter choice: "))
+    logAttempt = 0
     while loginOver==False:
         if choice==1: #a returning user enters username and password
             loginUser=input("Enter username: ") 
@@ -304,6 +305,11 @@ def main():
             userIn=login(loginUser, loginPass, student)
             if userIn==False: #if the input comes back false, user does not get to login
                 print("wrong user/pass")
+                logAttempt = logAttempt + 1
+                if (logAttempt == 3): #only three attempts to try to login 
+                   print("Timed out")
+                   loginOver=True
+                   exit == True
             else:
                 loginOver=True
                 while exit == False: #else the user gets prompted with menu
@@ -327,51 +333,51 @@ def main():
                         userIn.viewAnswers(questions)
                     elif choice==6:
                         exit = True
-    if choice==2:
-        userIn=newUser(student, questions) #new user goes to enter their info then gets promped with the menu
-        while exit==False:
-            menu()
-            choice=int(input("Enter choice: "))
-            if choice==1:  
-                userIn.viewProfile()
-            elif choice==2:
-                if len(viewMatch)==0:
-                    viewMatch=userIn.getMatches(student)
-                if len(viewMatch)==0:
-                    print("No matches :(")
-                else:
-                    print(*viewMatch, sep="\n")
-            elif choice==3:
-                None
-            elif choice==4:
-                choice=input("Which question number would you like to change?\n")
-                userIn.editQuestion(choice, questions)
-            elif choice==5:
-                userIn.viewAnswers(questions)
-            elif choice==6:
-                exit=True
-                #start writing data into a textFile
-                #inspired by the KhaMain.cpp file for library catalogs
-#                write_file = open("data.txt", "w") <- creates the writing document
-#                for i in range(len(personArray)-1):
-#                   write_file.write(str(personArray[i].bio + " ")
-#                   write_file.write(str(personArray[i].Q1 + " ")
-#                   write_file.write(str(personArray[i].Q2 + " ")
-#                   write_file.write(str(personArray[i].Q3 + " ")
-#                   write_file.write(str(personArray[i].Q4 + " ")
-#                   write_file.write(str(personArray[i].Q5 + " ")
-#                   write_file.write(str(personArray[i].Q6 + " ")
-#                   write_file.write(str(personArray[i].Q7 + " ")
-#                   write_file.write(str(personArray[i].Q8 + " ")
-#                   write_file.write(str(personArray[i].Q9 + " ")
-#                   write_file.write(str(personArray[i].Q10 + " ")
-#                   write_file.write(str(personArray[i].password + " ")
-#                   write_file.write(str(personArray[i].username + " ")
-#                   write_file.write(str(personArray[i].gender + " ")
-#                   write_file.close()
+        if choice==2:
+            userIn=newUser(student, questions) #new user goes to enter their info then gets promped with the menu
+            while exit==False:
+                menu()
+                choice=int(input("Enter choice: "))
+                if choice==1:  
+                    userIn.viewProfile()
+                elif choice==2:
+                    if len(viewMatch)==0:
+                        viewMatch=userIn.getMatches(student)
+                    if len(viewMatch)==0:
+                        print("No matches :(")
+                    else:
+                        print(*viewMatch, sep="\n")
+                elif choice==3:
+                    None
+                elif choice==4:
+                    choice=input("Which question number would you like to change?\n")
+                    userIn.editQuestion(choice, questions)
+                elif choice==5:
+                    userIn.viewAnswers(questions)
+                elif choice==6:
+                    exit=True
+                    #start writing data into a textFile
+                    #inspired by the KhaMain.cpp file for library catalogs
+    #                write_file = open("data.txt", "w") <- creates the writing document
+    #                for i in range(len(personArray)-1):
+    #                   write_file.write(str(personArray[i].bio + " ")
+    #                   write_file.write(str(personArray[i].Q1 + " ")
+    #                   write_file.write(str(personArray[i].Q2 + " ")
+    #                   write_file.write(str(personArray[i].Q3 + " ")
+    #                   write_file.write(str(personArray[i].Q4 + " ")
+    #                   write_file.write(str(personArray[i].Q5 + " ")
+    #                   write_file.write(str(personArray[i].Q6 + " ")
+    #                   write_file.write(str(personArray[i].Q7 + " ")
+    #                   write_file.write(str(personArray[i].Q8 + " ")
+    #                   write_file.write(str(personArray[i].Q9 + " ")
+    #                   write_file.write(str(personArray[i].Q10 + " ")
+    #                   write_file.write(str(personArray[i].password + " ")
+    #                   write_file.write(str(personArray[i].username + " ")
+    #                   write_file.write(str(personArray[i].gender + " ")
+    #                   write_file.close()
 
-                exit = True
-            else:
-                print("Invalid answer - please enter numbers")
+                    exit = True
+                else:
+                    print("Invalid answer - please enter numbers")
 
 main()
