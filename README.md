@@ -27,3 +27,5 @@
 9/27: v0.3.2 Added menu options to new user. <-Kyle
 
 9/28: v0.3.5 Added loop for when a user incorrectly enters login information.
+
+10/1: v0.3.6 3 attempts to log in before fail (also check if statement location) <- Steven
