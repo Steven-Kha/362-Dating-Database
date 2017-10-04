@@ -34,7 +34,7 @@ class person(): #class for new users
         if change==1:
             print(questions[0])
             print("1. Yes")
-            print("2. No") 
+            print("2. No")
             choice=int(input("Enter selection: "))
             self.Q1=choice
         elif change==2:
@@ -244,7 +244,7 @@ def newUser(student, questions): #new user will enter in these choices and they 
     sPrefPartnerBirthYear=input("Would you like your partner to be older or younger than you? ")
     sBio=input("Describe yourself! ")
     os.system('cls')
-    choice=input("Would you like to answer the questions now or answer them later? Y/N: ")
+    choice=input("Would you like to answer the questions now or answer them later?")
     if choice[0].lower() == 'y':
         i=0
         while i<len(questions):
@@ -261,10 +261,12 @@ def newUser(student, questions): #new user will enter in these choices and they 
             else:
                 answers[i]=selection
                 os.system('cls')
-        newUser=person(sGender, sBio, sPassword, sBirthYear, sPrefPartnerBirthYear, sPartnerGender, sCollegeYear, sUserName, sMajor, sEmail, answers[1], answers[2], answers[3], answers[4], answers[5], answers[6], answers[7], answers[8], answers[9],answers[10])
+        snewUser=person(sGender, sBio, sPassword, sBirthYear, sPrefPartnerBirthYear, sPartnerGender, sCollegeYear, sUserName, sMajor, sEmail, answers[1], answers[2], answers[3], answers[4], answers[5], answers[6], answers[7], answers[8], answers[9],answers[10])
+        student.append(snewUser)
         return student[len(student)-1]
     elif choice[0].lower() == 'n':
-        newUser=person(sGender, sBio, sPassword, sBirthYear, sPrefPartnerBirthYear, sPartnerGender, sCollegeYear, sUserName, sMajor, sEmail,None,None,None,None,None,None,None,None,None,None)
+        snewUser=person(sGender, sBio, sPassword, sBirthYear, sPrefPartnerBirthYear, sPartnerGender, sCollegeYear, sUserName, sMajor, sEmail,None,None,None,None,None,None,None,None,None,None)
+        student.append(snewUser)
         return student[len(student)-1]
 
 def initTests(student):
@@ -276,7 +278,6 @@ def initTests(student):
     Arshi=person("male", "I like playing basketball and 2k!", "bruhcmon", "03/10/1993", "1995", "female", "Senior", "Arshifoo", "Computer Science", "arshi95@csu.fullerton.edu", 2, 2, 1, 2, 1, 2, 2, 2, 2, 1)
     Jay=person("male", "I like to listen to rap music and respecting women", "444+222", "12/6/1996", "1994", "female", "Sophomore", "jaydiddy69", "Women's Studies", "jaydiddy7272@csu.fullerton.edu", 1, 1, 1, 1, 1, 1, 1, 1, 1, 1)  
     steven = person("male", "I like to eat apples and bananas", "1234", "05/07/1994", " 1996", "female", "Junior", "skha", "Computer Science", "stevenvkha@csu.fullerton.edu", 1, 2, 2, 1, 1, 2, 1, 1, 1, 1)
-    elizabeth = person("female", "I sell propane and propane accessories", "HelloWorld", "1987", "1987", "female", "Grad", "MQ", "Computer Science", "elizabethchen@csu.fullerton.edu", 2, 2, 1, 2, 2, 2, 1, 2, 1, 1)
     student.append(testMatch1)
     student.append(testMatch2)
     student.append(luis)
@@ -284,61 +285,28 @@ def initTests(student):
     student.append(steven)
     student.append(Arshi)
     student.append(Jay)
-    student.append(elizabeth)
     student.append(newUse) #will be removed in final product
     return
 def main():
     exit=False #end of menu loop
     student=[] #list of student objects
     viewMatch=[]
-    loginOver=False
     questions=["Do you want to eventually have children?", "Do you have kids?", "Was your longest relationship longer than a year?", "Is religion important to you?", "Would you consider dating someone outside your faith?", "Do you smoke?", "Do you drink more than once a week?", "Do you exercise?", "Do you prefer if your partner is taller than you?", "Do you enjoy discussing politics?"]
     initTests(student)
     print("1. Returning User")
     print("2. New User")
     choice=int(input("Enter choice: "))
-    logAttempt = 0
-    while loginOver==False:
-        if choice==1: #a returning user enters username and password
-            loginUser=input("Enter username: ") 
-            loginPass=getpass.getpass("Enter your password: ")
-            userIn=login(loginUser, loginPass, student)
-            if userIn==False: #if the input comes back false, user does not get to login
-                print("wrong user/pass")
-                logAttempt = logAttempt + 1
-                if (logAttempt == 3): #only three attempts to try to login 
-                   print("Timed out")
-                   loginOver=True
-                   exit == True
-            else:
-                loginOver=True
-                while exit == False: #else the user gets prompted with menu
-                    menu()
-                    choice=int(input("Enter choice: "))
-                    if choice==1:
-                        userIn.viewProfile()
-                    elif choice==2:
-                        if len(viewMatch)==0:
-                            viewMatch=userIn.getMatches(student)
-                        if len(viewMatch)==0:
-                            print("No matches :(")
-                        else:
-                            print(*viewMatch, sep="\n")
-                    elif choice==3:
-                        None
-                    elif choice==4:
-                        choice=input("Which question number would you like to change?\n")
-                        userIn.editQuestion(choice,questions)
-                    elif choice==5:
-                        userIn.viewAnswers(questions)
-                    elif choice==6:
-                        exit = True
-        if choice==2:
-            userIn=newUser(student, questions) #new user goes to enter their info then gets promped with the menu
-            while exit==False:
+    if choice==1: #a returning user enters username and password
+        loginUser=input("Enter username: ") 
+        loginPass=getpass.getpass("Enter your password: ")
+        userIn=login(loginUser, loginPass, student)
+        if userIn==False: #if the input comes back false, user does not get to login
+            print("wrong user/pass")
+        else:
+            while exit == False: #else the user gets prompted with menu
                 menu()
                 choice=int(input("Enter choice: "))
-                if choice==1:  
+                if choice==1:
                     userIn.viewProfile()
                 elif choice==2:
                     if len(viewMatch)==0:
@@ -351,33 +319,56 @@ def main():
                     None
                 elif choice==4:
                     choice=input("Which question number would you like to change?\n")
-                    userIn.editQuestion(choice, questions)
+                    userIn.editQuestion(choice,questions)
                 elif choice==5:
                     userIn.viewAnswers(questions)
                 elif choice==6:
-                    exit=True
-                    #start writing data into a textFile
-                    #inspired by the KhaMain.cpp file for library catalogs
-    #                write_file = open("data.txt", "w") <- creates the writing document
-    #                for i in range(len(personArray)-1):
-    #                   write_file.write(str(personArray[i].bio + " ")
-    #                   write_file.write(str(personArray[i].Q1 + " ")
-    #                   write_file.write(str(personArray[i].Q2 + " ")
-    #                   write_file.write(str(personArray[i].Q3 + " ")
-    #                   write_file.write(str(personArray[i].Q4 + " ")
-    #                   write_file.write(str(personArray[i].Q5 + " ")
-    #                   write_file.write(str(personArray[i].Q6 + " ")
-    #                   write_file.write(str(personArray[i].Q7 + " ")
-    #                   write_file.write(str(personArray[i].Q8 + " ")
-    #                   write_file.write(str(personArray[i].Q9 + " ")
-    #                   write_file.write(str(personArray[i].Q10 + " ")
-    #                   write_file.write(str(personArray[i].password + " ")
-    #                   write_file.write(str(personArray[i].username + " ")
-    #                   write_file.write(str(personArray[i].gender + " ")
-    #                   write_file.close()
-
                     exit = True
+    if choice==2:
+        userIn=newUser(student, questions) #new user goes to enter their info then gets promped with the menu
+        while exit==False:
+            menu()
+            choice=int(input("Enter choice: "))
+            if choice==1:  
+                userIn.viewProfile()
+            elif choice==2:
+                if len(viewMatch)==0:
+                    viewMatch=userIn.getMatches(student)
+                if len(viewMatch)==0:
+                    print("No matches :(")
                 else:
-                    print("Invalid answer - please enter numbers")
+                    print(*viewMatch, sep="\n")
+            elif choice==3:
+                None
+            elif choice==4:
+                choice=input("Which question number would you like to change?\n")
+                userIn.editQuestion(choice, questions)
+            elif choice==5:
+                userIn.viewAnswers(questions)
+            elif choice==6:
+                exit=True
+                #start writing data into a textFile
+                #inspired by the KhaMain.cpp file for library catalogs
+#                write_file = open("data.txt", "w") <- creates the writing document
+#                for i in range(len(personArray)-1):
+#                   write_file.write(str(personArray[i].bio + " ")
+#                   write_file.write(str(personArray[i].Q1 + " ")
+#                   write_file.write(str(personArray[i].Q2 + " ")
+#                   write_file.write(str(personArray[i].Q3 + " ")
+#                   write_file.write(str(personArray[i].Q4 + " ")
+#                   write_file.write(str(personArray[i].Q5 + " ")
+#                   write_file.write(str(personArray[i].Q6 + " ")
+#                   write_file.write(str(personArray[i].Q7 + " ")
+#                   write_file.write(str(personArray[i].Q8 + " ")
+#                   write_file.write(str(personArray[i].Q9 + " ")
+#                   write_file.write(str(personArray[i].Q10 + " ")
+#                   write_file.write(str(personArray[i].password + " ")
+#                   write_file.write(str(personArray[i].username + " ")
+#                   write_file.write(str(personArray[i].gender + " ")
+#                   write_file.close()
+
+                exit = True
+            else:
+                print("Invalid answer - please enter numbers")
 
 main()
