@@ -31,3 +31,5 @@
 10/1: v0.3.6 Three attempts to log in before fail (also check if statement location) <- Steven
 
 10/10: v1.0 Added search function. <- Kyle
+
+10/11 v1.1 Fixed exit for new user and clear screen for view answers <- Steven
