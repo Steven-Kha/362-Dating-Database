@@ -150,6 +150,8 @@ class person(): #class for new users
             print("Yes")
         else:
             print("No")
+        input("Press enter to return to menu")
+        os.system('cls')
     def getMatches(self, students):
         matches=[]
         for i in range(0,len(students)):
@@ -358,6 +360,7 @@ def main():
             userIn=newUser(student, questions) #new user goes to enter their info then gets promped with the menu
             while exit==False:
                 menu()
+                loginOver=True
                 choice=int(input("Enter choice: "))
                 if choice==1:  
                     userIn.viewProfile()
