@@ -29,6 +29,7 @@ class person(): #class for new users
         print(self.bio)
         print(self.major)
         print(self.gender)
+        print(self.bio)
     def editQuestion(self, change, questions): #edit questions
         change=int(change)
         if change==1:
@@ -222,7 +223,8 @@ def menu(): #print menu choices
     print("3. Edit Profile")
     print("4. Edit Question Answers")
     print("5. View Answers")
-    print("6. Exit")
+    print("6. Search For User")
+    print("7. Exit")
 
 def newUser(student, questions): #new user will enter in these choices and they will be passed to class
     answers=[0]*11
@@ -269,9 +271,17 @@ def newUser(student, questions): #new user will enter in these choices and they 
         student.append(snewUser)
         return student[len(student)-1]
 
+def searchUser(student, findUserName):
+    for i in range(0, len(student)):
+        if student[i].username==findUserName:
+            student[i].viewProfile()
+            return
+    print("User not found")
+    return
+
 def initTests(student):
-    testMatch1=person("female", "test", "4", "1995", "1995", "male", "Senior", "3", "Computer Science", "test1@csu.fullerton.edu", 1,1,1,1,1,1,1,1,1,1)
-    testMatch2=person("male", "test", "2", "1995", "1995", "female", "Senior", "1", "Comp Sci", "test2@csu.fullerton.edu", 1,1,1,1,1,1,1,1,1,1)
+    testMatch1=person("female", "test", "4", "1995", "1995", "male", "Senior", "angelaaaaKay", "Computer Science", "test1@csu.fullerton.edu", 1,1,1,1,1,1,1,1,1,1)
+    testMatch2=person("male", "test", "2", "1995", "1995", "female", "Senior", "Chaubaby", "Comp Sci", "test2@csu.fullerton.edu", 1,1,1,1,1,1,1,1,1,1)
     newUse=person("male", "this is a bio", "testPass", "1993", "1995", "f", "Senior", "testUser", "Computer Science", "newuse@csu.fullerton.edu", 1, 1, 2, 2, 1, 1, 2, 1, 1, 2) #used only for tests, will be removed in final product
     luis=person("male", "My name is Luis. I work at a department store taking out product.", "12345", "09/09/1993", "1993", "male", "Junior", "wicho", "mechanical engineering", "wicho@csu.fullerton.edu", 1, 2, 1, 2, 1, 2, 2, 2, 2, 2)
     kyle=person("male", "I like playing video games and messing with computers!", "Password1", "06/12/1993", "1995", "female", "Senior", "Dash612", "Computer Science", "kylejulien@csu.fullerton.edu", 2, 2, 1, 2, 1, 2, 2, 2, 2, 1)
@@ -287,6 +297,7 @@ def initTests(student):
     student.append(Jay)
     student.append(newUse) #will be removed in final product
     return
+
 def main():
     exit=False #end of menu loop
     student=[] #list of student objects
@@ -314,6 +325,8 @@ def main():
                     if len(viewMatch)==0:
                         print("No matches :(")
                     else:
+                        os.system('cls')
+                        print("Here are your matches: ")
                         print(*viewMatch, sep="\n")
                 elif choice==3:
                     None
@@ -323,6 +336,9 @@ def main():
                 elif choice==5:
                     userIn.viewAnswers(questions)
                 elif choice==6:
+                    findUser=input("Enter username you would like to search for: ")
+                    searchUser(student,findUser) 
+                elif choice==7:
                     exit = True
     if choice==2:
         userIn=newUser(student, questions) #new user goes to enter their info then gets promped with the menu
@@ -346,6 +362,9 @@ def main():
             elif choice==5:
                 userIn.viewAnswers(questions)
             elif choice==6:
+                findUser=input("Enter username you would like to search for: ")
+                searchUser(student, findUser) 
+            elif choice==7:
                 exit=True
                 #start writing data into a textFile
                 #inspired by the KhaMain.cpp file for library catalogs
