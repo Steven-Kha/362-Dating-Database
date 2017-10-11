@@ -29,3 +29,5 @@
 9/28: v0.3.5 Added loop for when a user incorrectly enters login information.
 
 10/1: v0.3.6 Three attempts to log in before fail (also check if statement location) <- Steven
+
+10/10: v1.0 Added search function. <- Kyle
