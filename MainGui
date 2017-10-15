@@ -324,6 +324,7 @@ def main(): #end of menu loop
     exit = False
     master=Tk()
     popUp=Toplevel()
+    master.withdraw()
     student=[] #list of student objects
     viewMatch=[]
     loginOver=False
@@ -334,6 +335,7 @@ def main(): #end of menu loop
     newUserButton=Button(popUp, text="New User", command=lambda: newUser(popUp, student, questions))
     newUserButton.pack()
     popUp.wait_window()
+    master.deiconify()
     while exit==False:
                 returnUserButton.pack_forget()
                 newUserButton.pack_forget()
