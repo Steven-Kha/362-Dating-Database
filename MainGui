@@ -153,6 +153,7 @@ class person(): #class for new users
         input("Press enter to return to menu")
         os.system('cls')
     def getMatches(self, students):
+        os.system('cls')
         matches=[]
         for i in range(0,len(students)):
             points=0
@@ -186,7 +187,8 @@ class person(): #class for new users
                 matches.append(students[i].username)
             if len(matches)>=5:
                 break
-        return matches
+        print(*matches, sep="\n")
+        return
     def editProfile(self):
         print("1. Edit Username")
         print("2. Edit Password")
@@ -233,6 +235,7 @@ def menu(): #print menu choices
     print("6. Exit")
 
 def newUser(student, questions): #new user will enter in these choices and they will be passed to class
+    global userIn
     answers=[0]*11
     sUserName=input("Enter username: ")
     sPassword=getpass.getpass("Enter password: ")
@@ -271,13 +274,14 @@ def newUser(student, questions): #new user will enter in these choices and they 
                 os.system('cls')
         sNewUser=person(sGender, sBio, sPassword, sBirthYear, sPrefPartnerBirthYear, sPartnerGender, sCollegeYear, sUserName, sMajor, sEmail, answers[1], answers[2], answers[3], answers[4], answers[5], answers[6], answers[7], answers[8], answers[9],answers[10])
         student.append(sNewUser)
-        return student[len(student)-1]
+        userIn = student[len(student)-1]
     elif choice[0].lower() == 'n':
         sNewUser=person(sGender, sBio, sPassword, sBirthYear, sPrefPartnerBirthYear, sPartnerGender, sCollegeYear, sUserName, sMajor, sEmail,None,None,None,None,None,None,None,None,None,None)
         student.append(sNewUser)
-        return student[len(student)-1]
+        userIn = student[len(student)-1]
 
 def searchUser(student):
+     os.system('cls')
      findUserName=input("Enter name of user you wish to search for: ")
      for i in range(0, len(student)):
          if student[i].username==findUserName:
@@ -297,6 +301,7 @@ def returningUser(master, student):
             print("Timed out")
             sys.exit()
      master.destroy()
+     os.system('cls')
      return
 def initTests(student):
     testMatch1=person("female", "test", "4", "1995", "1995", "male", "Senior", "Chaubaby", "Computer Science", "test1@csu.fullerton.edu", 1,1,1,1,1,1,1,1,1,1)
@@ -323,6 +328,7 @@ def exitLoop(master):
 def main(): #end of menu loop
     exit = False
     master=Tk()
+    master.title("TitanMeet")
     popUp=Toplevel()
     master.withdraw()
     student=[] #list of student objects
@@ -341,7 +347,7 @@ def main(): #end of menu loop
                 newUserButton.pack_forget()
                 profButton=Button(master, text="View profile", command=lambda: userIn.viewProfile())
                 profButton.pack()
-                viewMatchButton=Button(master, text="View Matches", command=lambda: print(*viewMatch, sep="\n"))
+                viewMatchButton=Button(master, text="View Matches", command=lambda: userIn.getMatches(student))
                 viewMatchButton.pack()
                 b=Button(master, text="View menu", command=lambda: menu())
                 b.pack()
