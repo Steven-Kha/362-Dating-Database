@@ -1,6 +1,5 @@
 import getpass
 import os
-import time
 from tkinter import *
 class person(): #class for new users
     def __init__(self, gender, bio, password, birthYear, prefPartnerBirthYear, partnerGender, collegeYear, username, major, email,  Q1, Q2, Q3, Q4, Q5, Q6, Q7, Q8, Q9, Q10):
@@ -33,7 +32,8 @@ class person(): #class for new users
         print("Gender: " + self.gender)
         print("Biography: " + self.bio)
         return
-    def editQuestion(self, change, questions): #edit questions
+    def editQuestion(self, questions): #edit questions
+        change=input("Which question number would you like to change?\n")
         os.system('cls')
         change=int(change)
         if change==1:
@@ -150,8 +150,6 @@ class person(): #class for new users
             print("Yes")
         else:
             print("No")
-        input("Press enter to return to menu")
-        os.system('cls')
     def getMatches(self, students):
         os.system('cls')
         matches=[]
@@ -234,7 +232,7 @@ def menu(): #print menu choices
     print("5. View Answers")
     print("6. Exit")
 
-def newUser(student, questions): #new user will enter in these choices and they will be passed to class
+def newUser(popUp, student, questions): #new user will enter in these choices and they will be passed to class
     global userIn
     answers=[0]*11
     sUserName=input("Enter username: ")
@@ -349,10 +347,11 @@ def main(): #end of menu loop
                 profButton.pack()
                 viewMatchButton=Button(master, text="View Matches", command=lambda: userIn.getMatches(student))
                 viewMatchButton.pack()
-                b=Button(master, text="View menu", command=lambda: menu())
+                b=Button(master, text="Edit questions", command=lambda: userIn.editQuestion(questions))
                 b.pack()
                 searchButton=Button(master, text="Search for user", command=lambda: searchUser(student))
                 searchButton.pack()
+                viewAnswersButton=Button(master, text="View answers", command=lambda: userIn.viewAnswers(questions)).pack()
                 exitButton=Button(master, text="Exit", command=lambda: exitLoop(master))
                 exitButton.pack()
                 master.mainloop()
