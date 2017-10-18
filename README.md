@@ -34,4 +34,6 @@
 
 10/11 v1.1 Fixed exit for new user and clear screen for view answers <- Steven
 
-10/15: v1.2 First attempt at GUI implemented in file MainGui. Uses tkinter to create buttons. 
+10/15: v1.2 First attempt at GUI implemented in file MainGui. Uses tkinter to create buttons. <-Kyle
+
+10/18: v1.2.1 Added buttons for all previous menu choices <-Kyle
