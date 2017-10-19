@@ -37,3 +37,5 @@
 10/15: v1.2 First attempt at GUI implemented in file MainGui. Uses tkinter to create buttons. <-Kyle
 
 10/18: v1.2.1 Added buttons for all previous menu choices <-Kyle
+
+10/18: v1.3 Added last time user was logged in and ability to deactivate profile <- Kyle
