@@ -39,3 +39,5 @@
 10/18: v1.2.1 Added buttons for all previous menu choices <-Kyle
 
 10/18: v1.3 Added last time user was logged in and ability to deactivate profile <- Kyle
+
+10/21: v1.4 Added ability to edit profile <- Kyle
