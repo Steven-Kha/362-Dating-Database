@@ -192,7 +192,7 @@ class person(): #class for new users
                 break
         print(*matches, sep="\n")
         return
-    def deactivateProfile(self, student):
+    def deactivateProfile(self, student, master):
         os.system('cls')
         for i in range(0, len(student)):
             if(self.username==student[i].username):
@@ -200,6 +200,9 @@ class person(): #class for new users
                 del student[i]
                 break
         print("Deactivation complete")
+        print("Exiting in 5 seconds")
+        time.sleep(5)
+        exitLoop(master)
         return
     def editProfile(self):
         os.system('cls')
@@ -234,10 +237,6 @@ class person(): #class for new users
             self.partnerGender=newPrefG
         print("Success!")
         return
-
-#if we can make a person array we can write a for loop that write out each person
-#into the txt file
-
 def login(loginUser, loginPass, student): #login to the database
     if not student: #checks if list is empty
         print("No users in database")
@@ -247,15 +246,6 @@ def login(loginUser, loginPass, student): #login to the database
             if loginPass==student[i].password:
                 return student[i]
     return False
-
-def menu(): #print menu choices
-    print("1. View Profile")
-    print("2. View Matches")
-    print("3. Search For User")
-    print("4. Edit Question Answers")
-    print("5. View Answers")
-    print("6. Exit")
-
 def newUser(master, student, questions): #new user will enter in these choices and they will be passed to class
     global userIn
     answers=[0]*11
@@ -303,7 +293,6 @@ def newUser(master, student, questions): #new user will enter in these choices a
         student.append(sNewUser)
         userIn = student[len(student)-1]
         master.destroy()
-
 def searchUser(student):
      os.system('cls')
      findUserName=input("Enter name of user you wish to search for: ")
@@ -379,60 +368,12 @@ def main(): #end of menu loop
                 searchButton=Button(master, text="Search for user", command=lambda: searchUser(student)).pack()
                 viewAnswersButton=Button(master, text="View answers", command=lambda: userIn.viewAnswers(questions)).pack()
                 editProfileButton=Button(master, text="Edit profile", command=lambda: userIn.editProfile()).pack()
-                deactivateProfileButton=Button(master, text="Deactivate profile", command=lambda: userIn.deactivateProfile(student)).pack()
+                deactivateProfileButton=Button(master, text="Deactivate profile", command=lambda: userIn.deactivateProfile(student, master)).pack()
                 exitButton=Button(master, text="Exit", command=lambda: exitLoop(master))
                 exitButton.pack()
                 master.mainloop()
                 sys.exit()
-                """loginOver=True
-                while exit == False: #else the user gets prompted with menu
-                    menu()
-                    choice=int(input("Enter choice: "))
-                    if choice==1:
-                        userIn.viewProfile()
-                    elif choice==2:
-                        None
-                    elif choice==3:
-                        searchButton=Button(master, text="Search for user", command=lambda: searchUser(student))
-                        searchButton.pack()
-                    elif choice==4:
-                        choice=input("Which question number would you like to change?\n")
-                        userIn.editQuestion(choice,questions)
-                    elif choice==5:
-                        userIn.viewAnswers(questions)
-                    elif choice==6:
-                        exit = True"""
-
-"""if choice==2:
-            userIn=newUser(student, questions) #new user goes to enter their info then gets promped with the menu
-            while exit==False:
-                menu()
-                loginOver=True
-                choice=int(input("Enter choice: "))
-                if choice==1:  
-                    userIn.viewProfile()
-                elif choice==2:
-                    if len(viewMatch)==0:
-                        viewMatch=userIn.getMatches(student)
-                    if len(viewMatch)==0:
-                        print("No matches :(")
-                    else:
-                        os.system('cls')
-                        print("\n")
-                        print(userIn.username+"'s matches: ")
-                        print(*viewMatch, sep="\n")
-                        print("\n")
-                elif choice==3:
-                    findUser=input("Enter username you wish to search for: ")
-                    searchUser(student, findUser)
-                elif choice==4:
-                    choice=input("Which question number would you like to change?\n")
-                    userIn.editQuestion(choice, questions)
-                elif choice==5:
-                    userIn.viewAnswers(questions)
-                elif choice==6:
-                    exit=True
-                    #start writing data into a textFile
+"""                   #start writing data into a textFile
                     #inspired by the KhaMain.cpp file for library catalogs
     #                write_file = open("data.txt", "w") <- creates the writing document
     #                for i in range(len(personArray)-1):
