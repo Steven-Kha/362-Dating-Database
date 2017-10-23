@@ -236,16 +236,16 @@ class person(): #class for new users
 # partnerGender
 # collegeYear
 # prefPartnerBirthYear
-# vectorIndex #used for storing elements of the loadVector into the variables above
+# vectorIndex = 0 #used for storing elements of the loadVector into the variables above
 #if we can make a person array we can write a for loop that write out each person
 #into the txt file
 #def load(student):
     #split lines lets us put each string into a vector. we can store each element into a data
     #loadVector = read_file.read().splitlines()
-    #size = len(loadVector)
+    #indexSize = len(loadVector)-1 #get the index size of vector 
     #if text.txt
         #with open('text.txt') as read_file:
-            #setting each value to the element of the index
+        #    comment: setting each value to the element of the index
         #    bio = loadVector[vectorIndex]
         #    vectorIndex+=1
         #    Q1 = loadVector[vectorIndex]
@@ -285,10 +285,14 @@ class person(): #class for new users
         #    collegeYear = loadVector[vectorIndex]
         #    vectorIndex+=1
         #    prePartnerBirthYear = loadVector[vectorIndex]
-        #    vectorIndex+=1
+        #    if (indexSize - vectorIndex) > 0: #only increment vectorIndex if possible
+        #       vectorIndex+=1
+        #    else: 
+        #       read_file.close()
         #    person(gender, bio, password, birthYear, prefPartnerBirthYear, partnerGender, collegeYear, username, major, email,  Q1, Q2, Q3, Q4, Q5, Q6, Q7, Q8, Q9, Q10)
         #    student.append(person) #add the person into students
-        #read_file.close()
+        #    comment: not sure if the above will keep looping until end of file and read the rest correctly but the vectorIndex should be right...
+       
     else:
         printf("Can't open file!\n)
 
