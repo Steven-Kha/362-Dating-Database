@@ -43,3 +43,4 @@
 10/21: v1.4 Added ability to edit profile <- Kyle
 
 10/22: v.1.4a Added possible pseudocode for reading files and loading into the database <- Steven
+            b 	close read file before out of scope index <-Steven
