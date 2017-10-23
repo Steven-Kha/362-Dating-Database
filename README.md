@@ -41,3 +41,5 @@
 10/18: v1.3 Added last time user was logged in and ability to deactivate profile <- Kyle
 
 10/21: v1.4 Added ability to edit profile <- Kyle
+
+10/22: v.1.4a Added possible pseudocode for reading files and loading into the database <- Steven
