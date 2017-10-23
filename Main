@@ -1,6 +1,7 @@
 import getpass
 import os
 import time
+#read_file = open("text.txt", "r")
 class person(): #class for new users
     def __init__(self, gender, bio, password, birthYear, prefPartnerBirthYear, partnerGender, collegeYear, username, major, email,  Q1, Q2, Q3, Q4, Q5, Q6, Q7, Q8, Q9, Q10):
         self.bio=bio
@@ -210,9 +211,37 @@ class person(): #class for new users
             None
         elif choice==7:
             None
+#should be null everything below - compare this to newBook from khamain.cpp            
+#loadStudent = person("female", "test", "4", "1995", "1995", "male", "Senior", "Chaubaby", "Computer Science", "test1@csu.fullerton.edu", 1,1,1,1,1,1,1,1,1,1)            
+#these are default values that will be used to be read compare them to the blanks in line 24 - 34 in khamain.cpp
+# bio
+# Q1
+# Q2
+# Q3
+# Q4
+# Q5
+# Q6
+# Q7
+# Q8
+# Q9
+# Q10
+# email
+# password
+# username
+# gender
+# major
+# birthYear
+# partnerGender
+# collegeYear
+# prefPartnerBirthYear
 
 #if we can make a person array we can write a for loop that write out each person
 #into the txt file
+#def load(student):
+    #size = read_file.read().splitlines() reading stuff 
+    #if text.txt
+        #with open('text.txt') as read_file:
+            bio = 
 
 def login(loginUser, loginPass, student): #login to the database
     if not student: #checks if list is empty
