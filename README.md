@@ -44,4 +44,4 @@
 
 10/22: v.1.4a Added possible pseudocode for reading files and loading into the database <- Steven
 
-"           "b 	close read file before out of scope index <-Steven
+10/23: v.1.4b close read file before out of scope index <-Steven
