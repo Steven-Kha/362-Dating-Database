@@ -338,10 +338,11 @@ def initTests(student):
     return
 def exitLoop(master):
     master.destroy()
+    sys.exit()
 def main(): #end of menu loop
     exit = False
     master=Tk()
-    master.title("TitanMeet")
+    master.title("TitanMatch")
     popUp=Toplevel()
     master.withdraw()
     student=[] #list of student objects
@@ -349,30 +350,30 @@ def main(): #end of menu loop
     loginOver=False
     questions=["Do you want to eventually have children?", "Do you have kids?", "Was your longest relationship longer than a year?", "Is religion important to you?", "Would you consider dating someone outside your faith?", "Do you smoke?", "Do you drink more than once a week?", "Do you exercise?", "Do you prefer if your partner is taller than you?", "Do you enjoy discussing politics?"]
     initTests(student)
-    returnUserButton=Button(popUp, text="Returning User", command=lambda: returningUser(popUp, student))
+    returnUserButton=Button(popUp, text="Returning User", command=lambda: returningUser(popUp, student), bg="navy", fg="orange")
     returnUserButton.pack()
-    newUserButton=Button(popUp, text="New User", command=lambda: newUser(popUp, student, questions))
+    newUserButton=Button(popUp, text="New User", command=lambda: newUser(popUp, student, questions), bg="navy", fg="orange")
     newUserButton.pack()
+    exitLoginButton=Button(popUp, text="Exit", command=lambda: exitLoop(popUp), bg="navy", fg="orange").pack()
     popUp.wait_window()
     master.deiconify()
     while exit==False:
                 returnUserButton.pack_forget()
                 newUserButton.pack_forget()
-                profButton=Button(master, text="View profile", command=lambda: userIn.viewProfile())
+                profButton=Button(master, text="View profile", command=lambda: userIn.viewProfile(), bg="navy", fg="orange")
                 profButton.grid(padx=100, pady=100)
                 profButton.pack()
-                viewMatchButton=Button(master, text="View Matches", command=lambda: userIn.getMatches(student))
+                viewMatchButton=Button(master, text="View Matches", command=lambda: userIn.getMatches(student), bg="navy", fg="orange")
                 viewMatchButton.pack()
-                b=Button(master, text="Edit questions", command=lambda: userIn.editQuestion(questions))
+                b=Button(master, text="Edit questions", command=lambda: userIn.editQuestion(questions), bg="navy", fg="orange")
                 b.pack()
-                searchButton=Button(master, text="Search for user", command=lambda: searchUser(student)).pack()
-                viewAnswersButton=Button(master, text="View answers", command=lambda: userIn.viewAnswers(questions)).pack()
-                editProfileButton=Button(master, text="Edit profile", command=lambda: userIn.editProfile()).pack()
-                deactivateProfileButton=Button(master, text="Deactivate profile", command=lambda: userIn.deactivateProfile(student, master)).pack()
-                exitButton=Button(master, text="Exit", command=lambda: exitLoop(master))
+                searchButton=Button(master, text="Search for user", command=lambda: searchUser(student), bg="navy", fg="orange").pack()
+                viewAnswersButton=Button(master, text="View answers", command=lambda: userIn.viewAnswers(questions), bg="navy", fg="orange").pack()
+                editProfileButton=Button(master, text="Edit profile", command=lambda: userIn.editProfile(), bg="navy", fg="orange").pack()
+                deactivateProfileButton=Button(master, text="Deactivate profile", command=lambda: userIn.deactivateProfile(student, master), bg="navy", fg="orange").pack()
+                exitButton=Button(master, text="Exit", command=lambda: exitLoop(master), bg="navy", fg="orange")
                 exitButton.pack()
                 master.mainloop()
-                sys.exit()
 """                   #start writing data into a textFile
                     #inspired by the KhaMain.cpp file for library catalogs
     #                write_file = open("data.txt", "w") <- creates the writing document
