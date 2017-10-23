@@ -2,6 +2,8 @@ import getpass
 import os
 import time
 #read_file = open("text.txt", "r")
+#can we make student array global so the file i/o can work too?
+#also the read_file function may have to be called first
 class person(): #class for new users
     def __init__(self, gender, bio, password, birthYear, prefPartnerBirthYear, partnerGender, collegeYear, username, major, email,  Q1, Q2, Q3, Q4, Q5, Q6, Q7, Q8, Q9, Q10):
         self.bio=bio
@@ -234,14 +236,61 @@ class person(): #class for new users
 # partnerGender
 # collegeYear
 # prefPartnerBirthYear
-
+# vectorIndex #used for storing elements of the loadVector into the variables above
 #if we can make a person array we can write a for loop that write out each person
 #into the txt file
 #def load(student):
-    #size = read_file.read().splitlines() reading stuff 
+    #split lines lets us put each string into a vector. we can store each element into a data
+    #loadVector = read_file.read().splitlines()
+    #size = len(loadVector)
     #if text.txt
         #with open('text.txt') as read_file:
-            bio = 
+            #setting each value to the element of the index
+        #    bio = loadVector[vectorIndex]
+        #    vectorIndex+=1
+        #    Q1 = loadVector[vectorIndex]
+        #    vectorIndex+=1
+        #    Q2 = loadVector[vectorIndex]
+        #    vectorIndex+=1
+        #    Q3 = loadVector[vectorIndex]
+        #    vectorIndex+=1
+        #    Q4 = loadVector[vectorIndex]
+        #    vectorIndex+=1
+        #    Q5 = loadVector[vectorIndex]
+        #    vectorIndex+=1
+        #    Q6 = loadVector[vectorIndex]
+        #    vectorIndex+=1
+        #    Q7 = loadVector[vectorIndex]
+        #    vectorIndex+=1
+        #    Q8 = loadVector[vectorIndex]
+        #    vectorIndex+=1
+        #    Q9 = loadVector[vectorIndex]
+        #    vectorIndex+=1
+        #    Q10 = loadVector[vectorIndex]
+        #    vectorIndex+=1
+        #    email = loadVector[vectorIndex]
+        #    vectorIndex+=1
+        #    password = loadVector[vectorIndex]
+        #    vectorIndex+=1
+        #    username = loadVector[vectorIndex]
+        #    vectorIndex+=1
+        #    gender = loadVector[vectorIndex]
+        #    vectorIndex+=1
+        #    major = loadVector[vectorIndex]
+        #    vectorIndex+=1
+        #    birthyear = loadVector[vectorIndex]
+        #    vectorIndex+=1
+        #    partnerGender = loadVector[vectorIndex]
+        #    vectorIndex+=1
+        #    collegeYear = loadVector[vectorIndex]
+        #    vectorIndex+=1
+        #    prePartnerBirthYear = loadVector[vectorIndex]
+        #    vectorIndex+=1
+        #    person(gender, bio, password, birthYear, prefPartnerBirthYear, partnerGender, collegeYear, username, major, email,  Q1, Q2, Q3, Q4, Q5, Q6, Q7, Q8, Q9, Q10)
+        #    student.append(person) #add the person into students
+        #read_file.close()
+    else:
+        printf("Can't open file!\n)
 
 def login(loginUser, loginPass, student): #login to the database
     if not student: #checks if list is empty
