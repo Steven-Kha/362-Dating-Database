@@ -47,3 +47,6 @@
 10/23: v.1.4b close read file before out of scope index <-Steven
 
 10/27: v1.4.1 Added buttons for edit profile <-Kyle
+
+10/27: v1.5 Added option for users to get their password <-Kyle
+
