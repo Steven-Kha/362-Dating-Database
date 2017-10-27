@@ -45,3 +45,5 @@
 10/22: v.1.4a Added possible pseudocode for reading files and loading into the database <- Steven
 
 10/23: v.1.4b close read file before out of scope index <-Steven
+
+10/27: v1.4.1 Added buttons for edit profile <-Kyle
