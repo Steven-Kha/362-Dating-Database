@@ -50,3 +50,5 @@
 
 10/27: v1.5 Added option for users to get their password <-Kyle
 
+10/27: v1.6 Added a way to send messages to other users <-Kyle
+
