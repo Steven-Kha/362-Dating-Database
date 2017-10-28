@@ -200,6 +200,17 @@ class person(): #class for new users
         print(*matches, sep="\n")
         return
 
+    def sendMessage(self, student):
+        userMsg=input("Enter the username of the user you wish to send a message to: ")
+        for i in range(0,len(student)):
+            if userMsg==student[i].username:
+                userMsg=student[i]
+                msg=input("Enter your message: ")
+                yagmail.SMTP("titanmatchteam@gmail.com").send(userMsg.email, "You've received a message from "+self.username, msg)
+                print("Message sent successfully")
+                return
+        print("Could not find user with that name")
+        return
     def deactivateProfile(self, student, master):
         os.system('cls')
         for i in range(0, len(student)):
@@ -414,6 +425,7 @@ def main(): #end of menu loop
                 profButton.pack()
                 viewMatchButton=Button(master, text="View Matches", command=lambda: userIn.getMatches(student), bg="navy", fg="orange")
                 viewMatchButton.pack()
+                sendMsgButton=Button(master, text="Send message to a user", command=lambda: userIn.sendMessage(student), bg="navy", fg="orange").pack()
                 b=Button(master, text="Edit questions", command=lambda: userIn.editQuestion(questions), bg="navy", fg="orange")
                 b.pack()
                 searchButton=Button(master, text="Search for user", command=lambda: searchUser(student), bg="navy", fg="orange").pack()
