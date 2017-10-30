@@ -52,4 +52,4 @@
 
 10/27: v1.6 Added a way to send messages to other users <-Kyle
 
-10/30: v1.7 Added way to load students from text file <- Steven
+10/30: v1.7 Reading and Writing enabled <- Steven
