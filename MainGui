@@ -550,6 +550,7 @@ def main(): #end of menu loop
     exitLoginButton=Button(popUp, text="Exit", command=lambda: exitLoop(popUp), bg="navy", fg="orange").pack()
     popUp.wait_window()
     master.deiconify()
+    writeV(student)
     while exit==False:
                 returnUserButton.pack_forget()
                 newUserButton.pack_forget()
