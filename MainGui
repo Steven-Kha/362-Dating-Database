@@ -237,6 +237,7 @@ class person(): #class for new users
         for i in range(0, len(student)):
             if(self.username==student[i].username):
                 del student[i]
+                writeV(student) #update the change
                 break
         print("Deactivation complete")
         print("Exiting in 5 seconds")
@@ -569,28 +570,4 @@ def main(): #end of menu loop
                 exitButton=Button(master, text="Exit", command=lambda: exitLoop(master), bg="navy", fg="orange")
                 exitButton.pack()
                 master.mainloop()
-"""                   #start writing data into a textFile
-                    #inspired by the KhaMain.cpp file for library catalogs
-    #                write_file = open("data.txt", "w") <- creates the writing document
-    #                for i in range(len(personArray)-1):
-    #                   write_file.write(str(personArray[i].bio + " ")
-    #                   write_file.write(str(personArray[i].Q1 + " ")
-    #                   write_file.write(str(personArray[i].Q2 + " ")
-    #                   write_file.write(str(personArray[i].Q3 + " ")
-    #                   write_file.write(str(personArray[i].Q4 + " ")
-    #                   write_file.write(str(personArray[i].Q5 + " ")
-    #                   write_file.write(str(personArray[i].Q6 + " ")
-    #                   write_file.write(str(personArray[i].Q7 + " ")
-    #                   write_file.write(str(personArray[i].Q8 + " ")
-    #                   write_file.write(str(personArray[i].Q9 + " ")
-    #                   write_file.write(str(personArray[i].Q10 + " ")
-    #                   write_file.write(str(personArray[i].password + " ")
-    #                   write_file.write(str(personArray[i].username + " ")
-    #                   write_file.write(str(personArray[i].gender + " ")
-    #                   write_file.close()
-
-                    exit = True
-                else:
-                    print("Invalid answer - please enter numbers")
-"""
 main()
