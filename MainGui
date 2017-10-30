@@ -32,14 +32,14 @@ class person(): #class for new users
         timeStamp=time.time()
         self.timestamp=datetime.datetime.fromtimestamp(timeStamp).strftime('%Y-%m-%d')
     
-    def description(self):
-        print (self.username)
+    def description(self): #used to test file reading
+        print ("username: " + str(self.username))
         print (self.gender)
         print (self.major)
         print (self.birthYear)
         print (self.collegeYear)
         print (self.prefPartnerBirthYear)
-        print (self.password)
+        print ("password: " + self.password)
         print (self.bio)
         print (self.Q1)
         print (self.Q2)
@@ -377,7 +377,7 @@ def load(student):
     if read_file is None:
         print("Nothing loaded or file cannot be found")
 
-def printV(student): 
+def printV(student): #used to test file reading
     for i in range (len(student)):
         student[i].description()
     print(len(student))
@@ -510,7 +510,7 @@ def main(): #end of menu loop
     master.withdraw()
     student=[] #list of student objects
     load(student)
-    printV(student)
+    printV(student) #used to test file reading
     viewMatch=[]
     loginOver=False
     questions=["Do you want to eventually have children?", "Do you have kids?", "Was your longest relationship longer than a year?", "Is religion important to you?", "Would you consider dating someone outside your faith?", "Do you smoke?", "Do you drink more than once a week?", "Do you exercise?", "Do you prefer if your partner is taller than you?", "Do you enjoy discussing politics?"]
