@@ -243,7 +243,8 @@ class person(): #class for new users
     #split lines lets us put each string into a vector. we can store each element into a data
     #loadVector = read_file.read().splitlines()
     #indexSize = len(loadVector)-1 #get the index size of vector 
-    #if text.txt
+    #p1 = person(None, None)
+    #while indexSize - vectorIndex > 0:
         #with open('text.txt') as read_file:
         #    comment: setting each value to the element of the index
         #    bio = loadVector[vectorIndex]
@@ -289,8 +290,8 @@ class person(): #class for new users
         #       vectorIndex+=1
         #    else: 
         #       read_file.close()
-        #    person(gender, bio, password, birthYear, prefPartnerBirthYear, partnerGender, collegeYear, username, major, email,  Q1, Q2, Q3, Q4, Q5, Q6, Q7, Q8, Q9, Q10)
-        #    student.append(person) #add the person into students
+        #    p1 = person(gender, bio, password, birthYear, prefPartnerBirthYear, partnerGender, collegeYear, username, major, email,  Q1, Q2, Q3, Q4, Q5, Q6, Q7, Q8, Q9, Q10)
+        #    student.append(p1) #add the person into students
         #    comment: not sure if the above will keep looping until end of file and read the rest correctly but the vectorIndex should be right...
        
     else:
