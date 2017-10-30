@@ -381,6 +381,30 @@ def printV(student): #used to test file reading
     for i in range (len(student)):
         student[i].description()
     print(len(student))
+    
+def writeV(student):
+    write_file = open("output.txt", "w")
+    for i in range(len(student)):
+        write_file.write(str(student[i].bio) + "\n" +
+                         str(student[i].Q1) + "\n" +
+                         str(student[i].Q2) + "\n" +
+                         str(student[i].Q3) + "\n" +
+                         str(student[i].Q4) + "\n" +
+                         str(student[i].Q5) + "\n" +
+                         str(student[i].Q6) + "\n" +
+                         str(student[i].Q7) + "\n" +
+                         str(student[i].Q8) + "\n" +
+                         str(student[i].Q9) + "\n" +
+                         str(student[i].Q10) + "\n" +
+                         str(student[i].email) + "\n" +
+                         str(student[i].password) + "\n" +
+                         str(student[i].username) + "\n" +
+                         str(student[i].gender) + "\n" +
+                         str(student[i].major) + "\n" +
+                         str(student[i].birthYear) + "\n" +
+                         str(student[i].partnerGender) + "\n" +
+                         str(student[i].prefPartnerBirthYear) + "\n")
+    write_file.close()              
         
 def login(loginUser, loginPass, student): #login to the database
     if not student: #checks if list is empty
@@ -445,11 +469,13 @@ def newUser(master, student, questions): #new user will enter in these choices a
         sNewUser=person(sGender, sBio, sPassword, sBirthYear, sPrefPartnerBirthYear, sPartnerGender, sCollegeYear, sUserName, sMajor, sEmail, answers[1], answers[2], answers[3], answers[4], answers[5], answers[6], answers[7], answers[8], answers[9],answers[10])
         student.append(sNewUser)
         userIn = student[len(student)-1]
+        writeV(student)
         master.destroy()
     elif choice[0].lower() == 'n':
         sNewUser=person(sGender, sBio, sPassword, sBirthYear, sPrefPartnerBirthYear, sPartnerGender, sCollegeYear, sUserName, sMajor, sEmail,None,None,None,None,None,None,None,None,None,None)
         student.append(sNewUser)
         userIn = student[len(student)-1]
+        #writeV(student) will only work if we default the multiple choice beforehand
         master.destroy()
 
 def searchUser(student):
