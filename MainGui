@@ -31,6 +31,27 @@ class person(): #class for new users
         self.blockList=[]
         timeStamp=time.time()
         self.timestamp=datetime.datetime.fromtimestamp(timeStamp).strftime('%Y-%m-%d')
+    
+    def description(self):
+        print (self.username)
+        print (self.gender)
+        print (self.major)
+        print (self.birthYear)
+        print (self.collegeYear)
+        print (self.prefPartnerBirthYear)
+        print (self.password)
+        print (self.bio)
+        print (self.Q1)
+        print (self.Q2)
+        print (self.Q3)
+        print (self.Q4)
+        print (self.Q5)
+        print (self.Q6)
+        print (self.Q7)
+        print (self.Q8)
+        print (self.Q9)
+        print (self.Q10)
+    
         
     def viewProfile(self): #view profile
         os.system('cls')
@@ -277,7 +298,90 @@ class person(): #class for new users
         ePrefGenderButton=Button(editProf, text="Edit birthday", command=lambda: editPrefGender(self,editProf), bg="navy", fg="orange").pack()
         editProf.mainloop()
         return
+def load(student):
+#used for storing elements of the loadVector into the variables above
+#if we can make a person array we can write a for loop that write out each person
+#into the txt file
+#split lines lets us put each string into a vector. we can store each element into a data     
+    bio = " "
+    Q1 = 0
+    Q2 = 0
+    Q3 = 0
+    Q4 = 0
+    Q5 = 0
+    Q6 = 0
+    Q7 = 0
+    Q8 = 0
+    Q9 = 0
+    Q10 = 0
+    email = " "
+    password = " "
+    username = " "
+    gender = " "
+    major = " "
+    birthYear = " "
+    partnerGender = " "
+    collegeYear = " "
+    prefPartnerBirthYear = " "
+    read_file = open("output.txt", "r")
+    vectorIndex = 0
+    loadVector = read_file.read().splitlines()
+    vectorSize = len(loadVector) - 1 
+    p1 = (gender, bio, password, birthYear, prefPartnerBirthYear, partnerGender, collegeYear, username, major, email,  Q1, Q2, Q3, Q4, Q5, Q6, Q7, Q8, Q9, Q10)
 
+    while vectorSize - vectorIndex > 0:
+        with open('output.txt') as read_file:
+            #comment: setting each value to the element of the index
+            bio = loadVector[vectorIndex]
+            vectorIndex+=1
+            Q1 = loadVector[vectorIndex]
+            vectorIndex+=1
+            Q2 = loadVector[vectorIndex]
+            vectorIndex+=1
+            Q3 = loadVector[vectorIndex]
+            vectorIndex+=1
+            Q4 = loadVector[vectorIndex]
+            vectorIndex+=1
+            Q5 = loadVector[vectorIndex]
+            vectorIndex+=1
+            Q6 = loadVector[vectorIndex]
+            vectorIndex+=1
+            Q7 = loadVector[vectorIndex]
+            vectorIndex+=1
+            Q8 = loadVector[vectorIndex]
+            vectorIndex+=1
+            Q9 = loadVector[vectorIndex]
+            vectorIndex+=1
+            Q10 = loadVector[vectorIndex]
+            vectorIndex+=1
+            email = loadVector[vectorIndex]
+            vectorIndex+=1
+            password = loadVector[vectorIndex]
+            vectorIndex+=1
+            username = loadVector[vectorIndex]
+            vectorIndex+=1
+            gender = loadVector[vectorIndex]
+            vectorIndex+=1
+            major = loadVector[vectorIndex]
+            vectorIndex+=1
+            birthyear = loadVector[vectorIndex]
+            vectorIndex+=1
+            partnerGender = loadVector[vectorIndex]
+            vectorIndex+=1
+            collegeYear = loadVector[vectorIndex]
+            vectorIndex+=1
+            prePartnerBirthYear = loadVector[vectorIndex]
+            vectorIndex +=1 
+            p1 = person(gender, bio, password, birthYear, prefPartnerBirthYear, partnerGender, collegeYear, username, major, email,  Q1, Q2, Q3, Q4, Q5, Q6, Q7, Q8, Q9, Q10)
+            student.append(p1)
+    if read_file is None:
+        print("Nothing loaded or file cannot be found")
+
+def printV(student): 
+    for i in range (len(student)):
+        student[i].description()
+    print(len(student))
+        
 def login(loginUser, loginPass, student): #login to the database
     if not student: #checks if list is empty
         print("No users in database")
@@ -405,6 +509,8 @@ def main(): #end of menu loop
     popUp=Toplevel()
     master.withdraw()
     student=[] #list of student objects
+    load(student)
+    printV(student)
     viewMatch=[]
     loginOver=False
     questions=["Do you want to eventually have children?", "Do you have kids?", "Was your longest relationship longer than a year?", "Is religion important to you?", "Would you consider dating someone outside your faith?", "Do you smoke?", "Do you drink more than once a week?", "Do you exercise?", "Do you prefer if your partner is taller than you?", "Do you enjoy discussing politics?"]
