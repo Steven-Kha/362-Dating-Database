@@ -538,7 +538,7 @@ def main(): #end of menu loop
     master.withdraw()
     student=[] #list of student objects
     load(student)
-    printV(student) #used to test file reading
+    #printV(student) #used to test file reading
     viewMatch=[]
     loginOver=False
     questions=["Do you want to eventually have children?", "Do you have kids?", "Was your longest relationship longer than a year?", "Is religion important to you?", "Would you consider dating someone outside your faith?", "Do you smoke?", "Do you drink more than once a week?", "Do you exercise?", "Do you prefer if your partner is taller than you?", "Do you enjoy discussing politics?"]
