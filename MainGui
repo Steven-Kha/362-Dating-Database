@@ -31,27 +31,6 @@ class person(): #class for new users
         self.blockList=[]
         timeStamp=time.time()
         self.timestamp=datetime.datetime.fromtimestamp(timeStamp).strftime('%Y-%m-%d')
-    
-    def description(self): #used to test file reading
-        print ("username: " + str(self.username))
-        print (self.gender)
-        print (self.major)
-        print (self.birthYear)
-        print (self.collegeYear)
-        print (self.prefPartnerBirthYear)
-        print ("password: " + self.password)
-        print (self.bio)
-        print (self.Q1)
-        print (self.Q2)
-        print (self.Q3)
-        print (self.Q4)
-        print (self.Q5)
-        print (self.Q6)
-        print (self.Q7)
-        print (self.Q8)
-        print (self.Q9)
-        print (self.Q10)
-    
         
     def viewProfile(self): #view profile
         os.system('cls')
@@ -300,7 +279,7 @@ class person(): #class for new users
         editProf.mainloop()
         return
 def load(student):
-#used for storing elements of the loadVector into the variables above
+#<<splitlines() code>> used for storing elements of the loadVector into the variables above
 #if we can make a person array we can write a for loop that write out each person
 #into the txt file
 #split lines lets us put each string into a vector. we can store each element into a data     
@@ -377,11 +356,6 @@ def load(student):
             student.append(p1)
     if read_file is None:
         print("Nothing loaded or file cannot be found")
-
-def printV(student): #used to test file reading
-    for i in range (len(student)):
-        student[i].description()
-    print(len(student))
     
 def writeV(student):
     write_file = open("output.txt", "w")
@@ -538,7 +512,6 @@ def main(): #end of menu loop
     master.withdraw()
     student=[] #list of student objects
     load(student)
-    #printV(student) #used to test file reading
     viewMatch=[]
     loginOver=False
     questions=["Do you want to eventually have children?", "Do you have kids?", "Was your longest relationship longer than a year?", "Is religion important to you?", "Would you consider dating someone outside your faith?", "Do you smoke?", "Do you drink more than once a week?", "Do you exercise?", "Do you prefer if your partner is taller than you?", "Do you enjoy discussing politics?"]
