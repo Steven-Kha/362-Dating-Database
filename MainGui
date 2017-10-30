@@ -403,6 +403,7 @@ def writeV(student):
                          str(student[i].major) + "\n" +
                          str(student[i].birthYear) + "\n" +
                          str(student[i].partnerGender) + "\n" +
+                         str(student[i].collegeYear) + "\n" +
                          str(student[i].prefPartnerBirthYear) + "\n")
     write_file.close()              
         
