@@ -478,8 +478,7 @@ def returningUser(master, student):
      master.destroy()
      os.system('cls')
      return
-
-def initTests(student):
+"""def initTests(student):
     testMatch1=person("female", "test", "4", "1995", "1995", "male", "Senior", "Chaubaby", "Computer Science", "test1@csu.fullerton.edu", 1,1,1,1,1,1,1,1,1,1)
     testMatch2=person("male", "test", "2", "1995", "1995", "female", "Senior", "kylejulien", "Comp Sci", "test2@csu.fullerton.edu", 1,1,1,1,1,1,1,1,1,1)
     newUse=person("male", "this is a bio", "testPass", "1993", "1995", "f", "Senior", "testUser", "Computer Science", "newuse@csu.fullerton.edu", 1, 1, 2, 2, 1, 1, 2, 1, 1, 2) #used only for tests, will be removed in final product
@@ -499,48 +498,65 @@ def initTests(student):
     student.append(elizabeth)
     student.append(newUse) #will be removed in final product
     return
-
+"""
 def exitLoop(master):
     master.destroy()
     sys.exit()
 
 def main(): #end of menu loop
-    exit = False
     master=Tk()
     master.title("TitanMatch")
     popUp=Toplevel()
     master.withdraw()
     student=[] #list of student objects
     load(student)
+    #initTests(student)
     viewMatch=[]
     loginOver=False
     questions=["Do you want to eventually have children?", "Do you have kids?", "Was your longest relationship longer than a year?", "Is religion important to you?", "Would you consider dating someone outside your faith?", "Do you smoke?", "Do you drink more than once a week?", "Do you exercise?", "Do you prefer if your partner is taller than you?", "Do you enjoy discussing politics?"]
-    initTests(student)
     returnUserButton=Button(popUp, text="Returning User", command=lambda: returningUser(popUp, student), bg="navy", fg="orange")
+    returnUserButton.config(width=15)
     returnUserButton.pack()
     newUserButton=Button(popUp, text="New User", command=lambda: newUser(popUp, student, questions), bg="navy", fg="orange")
+    newUserButton.config(width=15)
     newUserButton.pack()
-    forgotPWButton=Button(popUp, text="Forgot password", command=lambda: forgotPassword(student), bg="navy", fg="orange").pack()
-    exitLoginButton=Button(popUp, text="Exit", command=lambda: exitLoop(popUp), bg="navy", fg="orange").pack()
+    forgotPWButton=Button(popUp, text="Forgot password", command=lambda: forgotPassword(student), bg="navy", fg="orange")
+    forgotPWButton.config(width=15)
+    forgotPWButton.pack()
+    exitLoginButton=Button(popUp, text="Exit", command=lambda: exitLoop(popUp), bg="navy", fg="orange")
+    exitLoginButton.config(width=15)
+    exitLoginButton.pack()
     popUp.wait_window()
     master.deiconify()
     writeV(student)
-    while exit==False:
-                returnUserButton.pack_forget()
-                newUserButton.pack_forget()
-                profButton=Button(master, text="View profile", command=lambda: userIn.viewProfile(), bg="navy", fg="orange")
-                profButton.grid(padx=100, pady=100)
-                profButton.pack()
-                viewMatchButton=Button(master, text="View Matches", command=lambda: userIn.getMatches(student), bg="navy", fg="orange")
-                viewMatchButton.pack()
-                sendMsgButton=Button(master, text="Send message to a user", command=lambda: userIn.sendMessage(student), bg="navy", fg="orange").pack()
-                b=Button(master, text="Edit questions", command=lambda: userIn.editQuestion(questions), bg="navy", fg="orange")
-                b.pack()
-                searchButton=Button(master, text="Search for user", command=lambda: searchUser(student), bg="navy", fg="orange").pack()
-                viewAnswersButton=Button(master, text="View answers", command=lambda: userIn.viewAnswers(questions), bg="navy", fg="orange").pack()
-                editProfileButton=Button(master, text="Edit profile", command=lambda: userIn.editProfile(), bg="navy", fg="orange").pack()
-                deactivateProfileButton=Button(master, text="Deactivate profile", command=lambda: userIn.deactivateProfile(student, master), bg="navy", fg="orange").pack()
-                exitButton=Button(master, text="Exit", command=lambda: exitLoop(master), bg="navy", fg="orange")
-                exitButton.pack()
-                master.mainloop()
+    returnUserButton.pack_forget()
+    newUserButton.pack_forget()
+    profButton=Button(master, text="View profile", command=lambda: userIn.viewProfile(), bg="navy", fg="orange")
+    profButton.config(width=15)
+    profButton.pack()
+    viewMatchButton=Button(master, text="View Matches", command=lambda: userIn.getMatches(student), bg="navy", fg="orange")
+    viewMatchButton.config(width=15)
+    viewMatchButton.pack()
+    sendMsgButton=Button(master, text="Message a user", command=lambda: userIn.sendMessage(student), bg="navy", fg="orange")
+    sendMsgButton.config(width=15)
+    sendMsgButton.pack()
+    b=Button(master, text="Edit questions", command=lambda: userIn.editQuestion(questions), bg="navy", fg="orange")
+    b.config(width=15)
+    b.pack()
+    searchButton=Button(master, text="Search for user", command=lambda: searchUser(student), bg="navy", fg="orange")
+    searchButton.config(width=15)
+    searchButton.pack()
+    viewAnswersButton=Button(master, text="View answers", command=lambda: userIn.viewAnswers(questions), bg="navy", fg="orange")
+    viewAnswersButton.config(width=15)
+    viewAnswersButton.pack()
+    editProfileButton=Button(master, text="Edit profile", command=lambda: userIn.editProfile(), bg="navy", fg="orange")
+    editProfileButton.config(width=15)
+    editProfileButton.pack()
+    deactivateProfileButton=Button(master, text="Deactivate profile", command=lambda: userIn.deactivateProfile(student, master), bg="navy", fg="orange")
+    deactivateProfileButton.config(width=15)
+    deactivateProfileButton.pack()
+    exitButton=Button(master, text="Exit", command=lambda: exitLoop(master), bg="navy", fg="orange")
+    exitButton.config(width=15)
+    exitButton.pack()
+    master.mainloop()
 main()
