@@ -34,6 +34,15 @@ class person(): #class for new users
         
     def viewProfile(self): #view profile
         os.system('cls')
+        root=Toplevel()
+        root.title(self.username+"'s profile: \n")
+        t=Text(root)
+        t.insert(END, "Username: " + self.username+'\n')
+        t.insert(END, "Major: " + self.major+'\n')
+        t.insert(END, "Gender: " + self.gender+'\n')
+        t.insert(END, "Biography: " + self.bio+'\n')
+        t.insert(END, "Last time " + self.username + " logged in: " + self.timestamp+'\n')
+        t.pack()
         print(self.username + "'s profile: ")
         print("Username: " + self.username)
         print("Major: " + self.major)
@@ -111,6 +120,60 @@ class person(): #class for new users
 
     def viewAnswers(self, questions): #view answers
         os.system('cls')
+        print(self.Q1)
+        root=Toplevel()
+        t=Text(root)
+        t.insert(END, "1. "+questions[0]+'\n')
+        if self.Q1=="1":
+            t.insert(END, "Yes\n")
+        else:
+            t.insert(END, "No\n")
+        t.insert(END, "2. "+questions[1]+'\n')
+        if self.Q2=="1":
+            t.insert(END, "Yes\n")
+        else:
+            t.insert(END, "No\n")
+        t.insert(END, "3. "+questions[2]+'\n')
+        if self.Q3=="1":
+            t.insert(END, "Yes\n")
+        else:
+            t.insert(END, "No\n")
+        t.insert(END, "4. "+questions[3]+'\n')
+        if self.Q4=="1":
+            t.insert(END, "Yes\n")
+        else:
+            t.insert(END, "No\n")
+        t.insert(END, "5. "+questions[4]+'\n')
+        if self.Q5=="1":
+            t.insert(END, "Yes\n")
+        else:
+            t.insert(END, "No\n")
+        t.insert(END, "6. "+questions[5]+'\n')
+        if self.Q6=="1":
+            t.insert(END, "Yes\n")
+        else:
+            t.insert(END, "No\n")
+        t.insert(END, "7. "+questions[6]+'\n')
+        if self.Q7=="1":
+            t.insert(END, "Yes\n")
+        else:
+            t.insert(END, "No\n")
+        t.insert(END, "8. "+questions[7]+'\n')
+        if self.Q8=="1":
+            t.insert(END, "Yes\n")
+        else:
+            t.insert(END, "No\n")
+        t.insert(END, "9. "+questions[8]+'\n')
+        if self.Q9=="1":
+            t.insert(END, "Yes\n")
+        else:
+            t.insert(END, "No\n")
+        t.insert(END, "10. "+questions[9]+'\n')
+        if self.Q10=="1":
+            t.insert(END, "Yes\n")
+        else:
+            t.insert(END, "No\n")
+        t.pack()
         print("1. "+questions[0])
         if self.Q1==1:
             print("Yes")
@@ -164,6 +227,7 @@ class person(): #class for new users
 
     def getMatches(self, students):
         os.system('cls')
+        root=Toplevel()
         matches=[]
         for i in range(0,len(students)):
             points=0
@@ -197,6 +261,10 @@ class person(): #class for new users
                 matches.append(students[i].username)
             if len(matches)>=5:
                 break
+        t=Text(root)
+        for i in matches:
+            t.insert(END, i+'\n')
+        t.pack()
         print(*matches, sep="\n")
         return
 
@@ -409,7 +477,6 @@ def login(loginUser, loginPass, student): #login to the database
 def forgotPassword(student):
     forgot=input("Enter your account name: ")
     for i in range(0, len(student)):
-        print(student[i].username)
         if forgot==student[i].username:
             forgot=student[i]
             yagmail.SMTP("titanmatchteam@gmail.com").send(forgot.email, "Forgotten password", "Hey there! Here is your password: " + forgot.password)
