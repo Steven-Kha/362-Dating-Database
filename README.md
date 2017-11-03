@@ -53,3 +53,5 @@
 10/27: v1.6 Added a way to send messages to other users <-Kyle
 
 10/30: v1.7 Reading and Writing enabled <- Steven
+
+11/3: v2.0 Added windows for view answers, view matches, and view profile <- Kyle
