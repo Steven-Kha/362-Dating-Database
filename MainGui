@@ -355,7 +355,7 @@ class person(): #class for new users
         eBirthdayButton=Button(editProf, text="Edit birthday", command=lambda: editBirthday(self, editProf), bg="navy", fg="orange")
         eBirthdayButton.config(width=15)
         eBirthdayButton.pack()
-        ePrefGenderButton=Button(editProf, text="Edit birthday", command=lambda: editPrefGender(self,editProf), bg="navy", fg="orange")
+        ePrefGenderButton=Button(editProf, text="Edit pref gender", command=lambda: editPrefGender(self,editProf), bg="navy", fg="orange")
         ePrefGenderButton.config(width=15)
         ePrefGenderButton.pack()
         editProf.mainloop()
