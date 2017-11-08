@@ -2,7 +2,6 @@ import getpass
 import os
 import time
 import datetime
-from PIL import ImageTk
 from tkinter import *
 import yagmail
 
