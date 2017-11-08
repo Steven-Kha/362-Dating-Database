@@ -315,7 +315,7 @@ def load(student):
     vectorSize = len(loadVector) - 1 
     p1 = (gender, bio, password, birthYear, prefPartnerBirthYear, partnerGender, collegeYear, username, major, email,  Q1, Q2, Q3, Q4, Q5, Q6, Q7, Q8, Q9, Q10, timestamp)
 
-    while vectorSize - vectorIndex > 0:
+    while vectorSize - vectorIndex > 0: #prevents out of scope
         with open('output.txt') as read_file:
             #comment: setting each value to the element of the index
             bio = loadVector[vectorIndex]
@@ -359,7 +359,7 @@ def load(student):
             prePartnerBirthYear = loadVector[vectorIndex]
             vectorIndex +=1 
             timestamp = loadVector[vectorIndex]
-            vectorIndex +=1
+            vectorIndex +=1 #we need this last one to move on to the next student
             p1 = person(gender, bio, password, birthYear, prefPartnerBirthYear, partnerGender, collegeYear, username, major, email,  Q1, Q2, Q3, Q4, Q5, Q6, Q7, Q8, Q9, Q10, timestamp)
             student.append(p1)
     if read_file is None:
@@ -388,7 +388,8 @@ def writeV(student):
                          str(student[i].partnerGender) + "\n" +
                          str(student[i].collegeYear) + "\n" +
                          str(student[i].prefPartnerBirthYear) + "\n" +
-                         str(student[i].timestamp) + "\n")
+                         str(student[i].timestamp) + "\n") #this extra new line is needed to write new students but this
+                                                           #means a blank new line is needed at the end of output.txt
     write_file.close()              
         
 def login(loginUser, loginPass, student): #login to the database
