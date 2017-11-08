@@ -412,6 +412,7 @@ def forgotPassword(student):
     return
 
 def newUser(master, student, questions): #new user will enter in these choices and they will be passed to class
+    timeStamp=time.time()
     global userIn
     answers=[0]*11
     sUserName=input("Enter username: ")
