@@ -2,6 +2,7 @@ import getpass
 import os
 import time
 import datetime
+#from PIL import ImageTk
 from tkinter import *
 import yagmail
 
@@ -358,6 +359,7 @@ def load(student):
             prePartnerBirthYear = loadVector[vectorIndex]
             vectorIndex +=1 
             timestamp = loadVector[vectorIndex]
+            vectorIndex +=1
             p1 = person(gender, bio, password, birthYear, prefPartnerBirthYear, partnerGender, collegeYear, username, major, email,  Q1, Q2, Q3, Q4, Q5, Q6, Q7, Q8, Q9, Q10, timestamp)
             student.append(p1)
     if read_file is None:
@@ -453,7 +455,7 @@ def newUser(master, student, questions): #new user will enter in these choices a
         sNewUser=person(sGender, sBio, sPassword, sBirthYear, sPrefPartnerBirthYear, sPartnerGender, sCollegeYear, sUserName, sMajor, sEmail, answers[1], answers[2], answers[3], answers[4], answers[5], answers[6], answers[7], answers[8], answers[9],answers[10], datetime.datetime.fromtimestamp(timeStamp).strftime('%Y-%m-%d'))
         student.append(sNewUser)
         userIn = student[len(student)-1]
-        writeV(student)
+        #writeV(student) #this breaks because of timestamp
         master.destroy()
     elif choice[0].lower() == 'n':
         sNewUser=person(sGender, sBio, sPassword, sBirthYear, sPrefPartnerBirthYear, sPartnerGender, sCollegeYear, sUserName, sMajor, sEmail,None,None,None,None,None,None,None,None,None,None, datetime.datetime.fromtimestamp(timeStamp).strftime('%Y-%m-%d'))
@@ -486,27 +488,7 @@ def returningUser(master, student):
      master.destroy()
      os.system('cls')
      return
-def initTests(student):
-    timeStamp=time.time()
-    testMatch1=person("female", "test", "4", "1995", "1995", "male", "Senior", "Chaubaby", "Computer Science", "test1@csu.fullerton.edu", 1,1,1,1,1,1,1,1,1,1, datetime.datetime.fromtimestamp(timeStamp).strftime('%Y-%m-%d'))
-    testMatch2=person("male", "test", "2", "1995", "1995", "female", "Senior", "kylejulien", "Comp Sci", "test2@csu.fullerton.edu", 1,1,1,1,1,1,1,1,1,1, datetime.datetime.fromtimestamp(timeStamp).strftime('%Y-%m-%d'))
-    newUse=person("male", "this is a bio", "testPass", "1993", "1995", "f", "Senior", "testUser", "Computer Science", "newuse@csu.fullerton.edu", 1, 1, 2, 2, 1, 1, 2, 1, 1, 2, datetime.datetime.fromtimestamp(timeStamp).strftime('%Y-%m-%d')) #used only for tests, will be removed in final product
-    luis=person("male", "My name is Luis. I work at a department store taking out product.", "12345", "09/09/1993", "1993", "male", "Junior", "wicho", "mechanical engineering", "wicho@csu.fullerton.edu", 1, 2, 1, 2, 1, 2, 2, 2, 2, 2, datetime.datetime.fromtimestamp(timeStamp).strftime('%Y-%m-%d'))
-    kyle=person("male", "I like playing video games and messing with computers!", "Password1", "06/12/1993", "1995", "female", "Senior", "Dash612", "Computer Science", "kylejulien@csu.fullerton.edu", 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, datetime.datetime.fromtimestamp(timeStamp).strftime('%Y-%m-%d'))
-    Arshi=person("male", "I like playing basketball and 2k!", "bruhcmon", "03/10/1993", "1995", "female", "Senior", "Arshifoo", "Computer Science", "arshi95@csu.fullerton.edu", 2, 2, 1, 2, 1, 2, 2, 2, 2, 1, datetime.datetime.fromtimestamp(timeStamp).strftime('%Y-%m-%d'))
-    Jay=person("male", "I like to listen to rap music and respecting women", "444+222", "12/6/1996", "1994", "female", "Sophomore", "jaydiddy69", "Women's Studies", "jaydiddy7272@csu.fullerton.edu", 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, datetime.datetime.fromtimestamp(timeStamp).strftime('%Y-%m-%d'))  
-    steven = person("male", "I like to eat apples and bananas", "1234", "05/07/1994", " 1996", "female", "Junior", "skha", "Computer Science", "stevenvkha@csu.fullerton.edu", 1, 2, 2, 1, 1, 2, 1, 1, 1, 1, datetime.datetime.fromtimestamp(timeStamp).strftime('%Y-%m-%d'))
-    elizabeth = person("female", "I sell propane and propane accessories", "HelloWorld", "1987", "1987", "female", "Grad", "MQ", "Computer Science", "elizabethchen@csu.fullerton.edu", 2, 2, 1, 2, 2, 2, 1, 2, 1, 1, datetime.datetime.fromtimestamp(timeStamp).strftime('%Y-%m-%d'))
-    student.append(testMatch1)
-    student.append(testMatch2)
-    student.append(luis)
-    student.append(kyle)
-    student.append(steven)
-    student.append(Arshi)
-    student.append(Jay)
-    student.append(elizabeth)
-    student.append(newUse) #will be removed in final product
-    return
+
 
 def exitLoop(master):
     master.destroy()
@@ -520,7 +502,7 @@ def main(): #end of menu loop
     master.withdraw()
     student=[] #list of student objects
     load(student)
-    initTests(student)
+    #initTests(student)
     viewMatch=[]
     loginOver=False
     questions=["Do you want to eventually have children?", "Do you have kids?", "Was your longest relationship longer than a year?", "Is religion important to you?", "Would you consider dating someone outside your faith?", "Do you smoke?", "Do you drink more than once a week?", "Do you exercise?", "Do you prefer if your partner is taller than you?", "Do you enjoy discussing politics?"]
