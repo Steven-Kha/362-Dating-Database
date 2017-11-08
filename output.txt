@@ -11,13 +11,14 @@ test
 1
 test1@csu.fullerton.edu
 4
-Chaubaby
+kumiko
 female
 Computer Science
- 
+1995
 male
 Senior
- 
+1995
+2017/10/15
 test
 1
 1
@@ -34,10 +35,11 @@ test2@csu.fullerton.edu
 kylejulien
 male
 Comp Sci
- 
+1995
 female
 Senior
- 
+1995
+2017/11/08
 My name is Luis. I work at a department store taking out product.
 1
 2
@@ -54,10 +56,11 @@ wicho@csu.fullerton.edu
 wicho
 male
 mechanical engineering
- 
+09/09/1993
 male
 Junior
- 
+1993
+2017/11/01
 I like playing video games and messing with computers!
 2
 2
@@ -74,10 +77,11 @@ Password1
 Dash612
 male
 Computer Science
- 
+06/12/1993
 female
 Senior
- 
+1995
+2017/11/08
 I like to eat apples and bananas
 1
 2
@@ -94,10 +98,11 @@ stevenvkha@csu.fullerton.edu
 skha
 male
 Computer Science
- 
+05/07/1994
 female
 Junior
- 
+ 1996
+2017/10/23
 I like playing basketball and 2k!
 2
 2
@@ -114,10 +119,11 @@ bruhcmon
 Arshifoo
 male
 Computer Science
- 
+03/10/1993
 female
 Senior
- 
+1995
+2017/11/07
 I like to listen to rap music and respecting women
 1
 1
@@ -134,10 +140,11 @@ jaydiddy7272@csu.fullerton.edu
 jaydiddy69
 male
 Women's Studies
- 
+12/6/1996
 female
 Sophomore
- 
+1994
+2017/11/07
 I sell propane and propane accessories
 2
 2
@@ -154,10 +161,11 @@ HelloWorld
 MQ
 female
 Computer Science
- 
+1987
 female
 Grad
- 
+1987
+2017/11/08
 this is a bio
 1
 1
@@ -174,7 +182,8 @@ testPass
 testUser
 male
 Computer Science
- 
+1993
 f
 Senior
- 
+1995
+2017/10/11
