@@ -6,7 +6,6 @@ import datetime
 from tkinter import *
 import yagmail
 
-
 class person(): #class for new users
     def __init__(self, gender, bio, password, birthYear, prefPartnerBirthYear, partnerGender, collegeYear, username, major, email,  Q1, Q2, Q3, Q4, Q5, Q6, Q7, Q8, Q9, Q10, timestamp):
         self.bio=bio
@@ -48,6 +47,8 @@ class person(): #class for new users
         return
 
     def editQuestion(self, questions): #edit questions
+        for i in range(0, len(questions)):
+            print(str((i+1))+". "+questions[i])
         change=input("Which question number would you like to change?\n")
         os.system('cls')
         change=int(change)
@@ -177,33 +178,34 @@ class person(): #class for new users
             if self.partnerGender!=students[i].gender:
                 continue
             if self.Q1==students[i].Q1:
-                points+=1
+                points+=3
             if self.Q2==students[i].Q2:
-                points+=1
+                points+=3
             if self.Q3==students[i].Q3:
                 points+=1
             if self.Q4==students[i].Q4:
-                points+=1
+                points+=2.5
             if self.Q5==students[i].Q5:
-                points+=1
-            if self.Q5==students[i].Q6:
-                points+=1
+                points+=3
             if self.Q6==students[i].Q6:
-                points+=1
+                points+=1.5
             if self.Q7==students[i].Q7:
-                points+=1
+                points+=1.5
             if self.Q8==students[i].Q8:
                 points+=1
             if self.Q9==students[i].Q9:
                 points+=1
             if self.Q10==students[i].Q10:
-                points+=1
-            if points>=6:
+                points+=1.5
+            if points>=10:
                 matches.append(students[i].username)
             if len(matches)>=5:
                 break
-        print(*matches, sep="\n")
-        return
+        if not matches:
+            print("No matches, try to edit some of your questions!")
+        else:
+            print(*matches, sep="\n")
+            return
 
     def sendMessage(self, student):
         userMsg=input("Enter the username of the user you wish to send a message to: ")
@@ -280,7 +282,7 @@ class person(): #class for new users
         eMajorButton=Button(editProf, text="Edit major", command=lambda: editMajor(self, editProf), bg="navy", fg="orange").pack()
         eGenderButton=Button(editProf, text="Edit gender", command=lambda: editGender(self, editProf), bg="navy", fg="orange").pack()
         eBirthdayButton=Button(editProf, text="Edit birthday", command=lambda: editBirthday(self, editProf), bg="navy", fg="orange").pack()
-        ePrefGenderButton=Button(editProf, text="Edit birthday", command=lambda: editPrefGender(self,editProf), bg="navy", fg="orange").pack()
+        ePrefGenderButton=Button(editProf, text="Edit pref gender", command=lambda: editPrefGender(self,editProf), bg="navy", fg="orange").pack()
         editProf.mainloop()
         return
 def load(student):
@@ -405,7 +407,6 @@ def login(loginUser, loginPass, student): #login to the database
 def forgotPassword(student):
     forgot=input("Enter your account name: ")
     for i in range(0, len(student)):
-        print(student[i].username)
         if forgot==student[i].username:
             forgot=student[i]
             yagmail.SMTP("titanmatchteam@gmail.com").send(forgot.email, "Forgotten password", "Hey there! Here is your password: " + forgot.password)
@@ -482,14 +483,20 @@ def returningUser(master, student):
      userIn=login(loginUser, loginPass, student)
      if userIn==False: #if the input comes back false, user does not get to login
         print("wrong user/pass")
-        logAttempt = logAttempt + 1
-        if (logAttempt == 3): #only three attempts to try to login 
-            print("Timed out")
-            sys.exit()
      master.destroy()
      os.system('cls')
      return
-
+ 
+def reportUser(master, student):
+     choice=input("What is the username of the person you would like to report? ")
+     report=input("Please describe the problems you have had with this person: ")
+     for i in range(0, len(student)):
+         if choice==student[i].username:
+             yagmail.SMTP("titanmatchteam@gmail.com").send("titanmatchteam@gmail.com", "Report filed by "+userIn.username, report)
+             print("Report has been successfully submitted.")
+             return
+     print("User not found")
+     return
 
 def exitLoop(master):
     master.destroy()
@@ -546,6 +553,9 @@ def main(): #end of menu loop
     editProfileButton=Button(master, text="Edit profile", command=lambda: userIn.editProfile(), bg="navy", fg="orange")
     editProfileButton.config(width=15)
     editProfileButton.pack()
+    reportButton=Button(master, text="Report user", command=lambda: reportUser(master, student), bg="navy", fg="orange")
+    reportButton.config(width=15)
+    reportButton.pack()
     deactivateProfileButton=Button(master, text="Deactivate profile", command=lambda: userIn.deactivateProfile(student, master), bg="navy", fg="orange")
     deactivateProfileButton.config(width=15)
     deactivateProfileButton.pack()
