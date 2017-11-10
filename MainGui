@@ -2,9 +2,9 @@ import getpass
 import os
 import time
 import datetime
-#from PIL import ImageTk
 from tkinter import *
 import yagmail
+
 
 class person(): #class for new users
     def __init__(self, gender, bio, password, birthYear, prefPartnerBirthYear, partnerGender, collegeYear, username, major, email,  Q1, Q2, Q3, Q4, Q5, Q6, Q7, Q8, Q9, Q10, timestamp):
@@ -31,20 +31,22 @@ class person(): #class for new users
         self.blockList=[]
         self.timestamp=timestamp
         
-    def viewProfile(self): #view profile
+    def viewProfile(self, master): #view profile
         os.system('cls')
-        print(self.username + "'s profile: ")
-        print("Username: " + self.username)
-        print("Major: " + self.major)
-        print("Gender: " + self.gender)
-        print("Biography: " + self.bio)
-        print("Last time " + self.username + " logged in: " + self.timestamp)
+        root=Toplevel()
+        root.title(self.username+"'s profile: \n")
+        t=Text(master)
+        t.insert(END, "Username: " + self.username+'\n')
+        t.insert(END, "Major: " + self.major+'\n')
+        t.insert(END, "Gender: " + self.gender+'\n')
+        t.insert(END, "Biography: " + self.bio+'\n')
+        t.insert(END, "Last time " + self.username + " logged in: " + self.timestamp+'\n')
+        t.pack()
         return
 
     def changeTimestamp(self):
         timeStamp=time.time()
         self.timestamp=datetime.datetime.fromtimestamp(timeStamp).strftime('%Y-%m-%d')
-        return
 
     def editQuestion(self, questions): #edit questions
         for i in range(0, len(questions)):
@@ -117,59 +119,64 @@ class person(): #class for new users
 
     def viewAnswers(self, questions): #view answers
         os.system('cls')
-        print("1. "+questions[0])
-        if self.Q1==1:
-            print("Yes")
+        print(self.Q1)
+        root=Toplevel()
+        t=Text(root)
+        t.insert(END, "1. "+questions[0]+'\n')
+        if self.Q1=="1":
+            t.insert(END, "Yes\n")
         else:
-            print("No")
-        print("2. "+questions[1])
-        if self.Q2==1:
-            print("Yes")
+            t.insert(END, "No\n")
+        t.insert(END, "2. "+questions[1]+'\n')
+        if self.Q2=="1":
+            t.insert(END, "Yes\n")
         else:
-            print("No")
-        print("3. "+questions[2])
-        if self.Q3==1:
-            print("Yes")
+            t.insert(END, "No\n")
+        t.insert(END, "3. "+questions[2]+'\n')
+        if self.Q3=="1":
+            t.insert(END, "Yes\n")
         else:
-            print("No")
-        print("4. "+questions[3])
-        if self.Q4==1:
-            print("Yes")
+            t.insert(END, "No\n")
+        t.insert(END, "4. "+questions[3]+'\n')
+        if self.Q4=="1":
+            t.insert(END, "Yes\n")
         else:
-            print("No")
-        print("5. "+questions[4])
-        if self.Q5==1:
-            print("Yes")
+            t.insert(END, "No\n")
+        t.insert(END, "5. "+questions[4]+'\n')
+        if self.Q5=="1":
+            t.insert(END, "Yes\n")
         else:
-            print("No")
-        print("6. "+questions[5])
-        if self.Q6==1:
-            print("Yes")
+            t.insert(END, "No\n")
+        t.insert(END, "6. "+questions[5]+'\n')
+        if self.Q6=="1":
+            t.insert(END, "Yes\n")
         else:
-            print("No")
-        print("7. "+questions[6])
-        if self.Q7==1:
-            print("Yes")
+            t.insert(END, "No\n")
+        t.insert(END, "7. "+questions[6]+'\n')
+        if self.Q7=="1":
+            t.insert(END, "Yes\n")
         else:
-            print("No")
-        print("8. "+questions[7])
-        if self.Q8==1:
-            print("Yes")
+            t.insert(END, "No\n")
+        t.insert(END, "8. "+questions[7]+'\n')
+        if self.Q8=="1":
+            t.insert(END, "Yes\n")
         else:
-            print("No")
-        print("9. "+questions[8])
-        if self.Q9==1:
-            print("Yes")
+            t.insert(END, "No\n")
+        t.insert(END, "9. "+questions[8]+'\n')
+        if self.Q9=="1":
+            t.insert(END, "Yes\n")
         else:
-            print("No")
-        print("10. "+questions[9])
-        if self.Q10==1:
-            print("Yes")
+            t.insert(END, "No\n")
+        t.insert(END, "10. "+questions[9]+'\n')
+        if self.Q10=="1":
+            t.insert(END, "Yes\n")
         else:
-            print("No")
+            t.insert(END, "No\n")
+        t.pack()
 
     def getMatches(self, students):
         os.system('cls')
+        root=Toplevel()
         matches=[]
         for i in range(0,len(students)):
             points=0
@@ -197,15 +204,15 @@ class person(): #class for new users
                 points+=1
             if self.Q10==students[i].Q10:
                 points+=1.5
-            if points>=10:
+            if points>=6:
                 matches.append(students[i].username)
-            if len(matches)>=5:
+            if len(matches)>=10:
                 break
-        if not matches:
-            print("No matches, try to edit some of your questions!")
-        else:
-            print(*matches, sep="\n")
-            return
+        t=Text(root)
+        for i in matches:
+            t.insert(END, i+'\n')
+        t.pack()
+        return
 
     def sendMessage(self, student):
         userMsg=input("Enter the username of the user you wish to send a message to: ")
@@ -218,17 +225,23 @@ class person(): #class for new users
                 return
         print("Could not find user with that name")
         return
+
     def deactivateProfile(self, student, master):
         os.system('cls')
+        master.withdraw()
+        root=Toplevel()
+        t=Text(root)
         for i in range(0, len(student)):
             if(self.username==student[i].username):
-                del student[i]
+                #del student[i]
+                t.insert(END, "Deactivation complete, click button to exit\n")
+                t.pack()
                 writeV(student) #update the change
+                exitButton=Button(root, text="Exit program", command=lambda: exitLoop(master), bg="navy", fg="orange")
+                exitButton.config(width=15)
+                exitButton.pack()
                 break
-        print("Deactivation complete")
-        print("Exiting in 5 seconds")
-        time.sleep(5)
-        exitLoop(master)
+        master.deiconify
         return
 
     def editProfile(self):
@@ -276,13 +289,27 @@ class person(): #class for new users
             editProf.destroy()
             print("Success!")
             return
-        eUnameButton=Button(editProf, text="Edit username", command=lambda: editUsername(self, editProf), bg="navy", fg="orange").pack()
-        ePWButton=Button(editProf, text="Edit password", command=lambda: editPassword(self, editProf), bg="navy", fg="orange").pack()
-        eEmailButton=Button(editProf, text="Edit email", command=lambda: editEmail(self, editProf), bg="navy", fg="orange").pack()
-        eMajorButton=Button(editProf, text="Edit major", command=lambda: editMajor(self, editProf), bg="navy", fg="orange").pack()
-        eGenderButton=Button(editProf, text="Edit gender", command=lambda: editGender(self, editProf), bg="navy", fg="orange").pack()
-        eBirthdayButton=Button(editProf, text="Edit birthday", command=lambda: editBirthday(self, editProf), bg="navy", fg="orange").pack()
-        ePrefGenderButton=Button(editProf, text="Edit pref gender", command=lambda: editPrefGender(self,editProf), bg="navy", fg="orange").pack()
+        eUnameButton=Button(editProf, text="Edit username", command=lambda: editUsername(self, editProf), bg="navy", fg="orange")
+        eUnameButton.config(width=15)
+        eUnameButton.pack()
+        ePWButton=Button(editProf, text="Edit password", command=lambda: editPassword(self, editProf), bg="navy", fg="orange")
+        ePWButton.config(width=15)
+        eUnameButton.pack()
+        eEmailButton=Button(editProf, text="Edit email", command=lambda: editEmail(self, editProf), bg="navy", fg="orange")
+        eEmailButton.config(width=15)
+        eEmailButton.pack()
+        eMajorButton=Button(editProf, text="Edit major", command=lambda: editMajor(self, editProf), bg="navy", fg="orange")
+        eMajorButton.config(width=15)
+        eMajorButton.pack()
+        eGenderButton=Button(editProf, text="Edit gender", command=lambda: editGender(self, editProf), bg="navy", fg="orange")
+        eGenderButton.config(width=15)
+        eGenderButton.pack()
+        eBirthdayButton=Button(editProf, text="Edit birthday", command=lambda: editBirthday(self, editProf), bg="navy", fg="orange")
+        eBirthdayButton.config(width=15)
+        eBirthdayButton.pack()
+        ePrefGenderButton=Button(editProf, text="Edit pref gender", command=lambda: editPrefGender(self,editProf), bg="navy", fg="orange")
+        ePrefGenderButton.config(width=15)
+        ePrefGenderButton.pack()
         editProf.mainloop()
         return
 def load(student):
@@ -310,14 +337,14 @@ def load(student):
     partnerGender = " "
     collegeYear = " "
     prefPartnerBirthYear = " "
-    timestamp = " "
+    timestamp=" "
     read_file = open("output.txt", "r")
     vectorIndex = 0
     loadVector = read_file.read().splitlines()
     vectorSize = len(loadVector) - 1 
     p1 = (gender, bio, password, birthYear, prefPartnerBirthYear, partnerGender, collegeYear, username, major, email,  Q1, Q2, Q3, Q4, Q5, Q6, Q7, Q8, Q9, Q10, timestamp)
 
-    while vectorSize - vectorIndex > 0: #prevents out of scope
+    while vectorSize - vectorIndex > 0:
         with open('output.txt') as read_file:
             #comment: setting each value to the element of the index
             bio = loadVector[vectorIndex]
@@ -361,7 +388,7 @@ def load(student):
             prePartnerBirthYear = loadVector[vectorIndex]
             vectorIndex +=1 
             timestamp = loadVector[vectorIndex]
-            vectorIndex +=1 #we need this last one to move on to the next student
+            vectorIndex+=1
             p1 = person(gender, bio, password, birthYear, prefPartnerBirthYear, partnerGender, collegeYear, username, major, email,  Q1, Q2, Q3, Q4, Q5, Q6, Q7, Q8, Q9, Q10, timestamp)
             student.append(p1)
     if read_file is None:
@@ -390,8 +417,7 @@ def writeV(student):
                          str(student[i].partnerGender) + "\n" +
                          str(student[i].collegeYear) + "\n" +
                          str(student[i].prefPartnerBirthYear) + "\n" +
-                         str(student[i].timestamp) + "\n") #this extra new line is needed to write new students but this
-                                                           #means a blank new line is needed at the end of output.txt
+                         str(student[i].timestamp) + "\n")
     write_file.close()              
         
 def login(loginUser, loginPass, student): #login to the database
@@ -457,7 +483,7 @@ def newUser(master, student, questions): #new user will enter in these choices a
         sNewUser=person(sGender, sBio, sPassword, sBirthYear, sPrefPartnerBirthYear, sPartnerGender, sCollegeYear, sUserName, sMajor, sEmail, answers[1], answers[2], answers[3], answers[4], answers[5], answers[6], answers[7], answers[8], answers[9],answers[10], datetime.datetime.fromtimestamp(timeStamp).strftime('%Y-%m-%d'))
         student.append(sNewUser)
         userIn = student[len(student)-1]
-        #writeV(student) #this breaks because of timestamp
+        writeV(student)
         master.destroy()
     elif choice[0].lower() == 'n':
         sNewUser=person(sGender, sBio, sPassword, sBirthYear, sPrefPartnerBirthYear, sPartnerGender, sCollegeYear, sUserName, sMajor, sEmail,None,None,None,None,None,None,None,None,None,None, datetime.datetime.fromtimestamp(timeStamp).strftime('%Y-%m-%d'))
@@ -486,7 +512,7 @@ def returningUser(master, student):
      master.destroy()
      os.system('cls')
      return
- 
+
 def reportUser(master, student):
      choice=input("What is the username of the person you would like to report? ")
      report=input("Please describe the problems you have had with this person: ")
@@ -532,7 +558,7 @@ def main(): #end of menu loop
     writeV(student)
     returnUserButton.pack_forget()
     newUserButton.pack_forget()
-    profButton=Button(master, text="View profile", command=lambda: userIn.viewProfile(), bg="navy", fg="orange")
+    profButton=Button(master, text="View profile", command=lambda: userIn.viewProfile(master), bg="navy", fg="orange")
     profButton.config(width=15)
     profButton.pack()
     viewMatchButton=Button(master, text="View Matches", command=lambda: userIn.getMatches(student), bg="navy", fg="orange")
@@ -563,4 +589,5 @@ def main(): #end of menu loop
     exitButton.config(width=15)
     exitButton.pack()
     master.mainloop()
+
 main()
