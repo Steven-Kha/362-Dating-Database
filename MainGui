@@ -7,7 +7,9 @@ import yagmail
 
 
 class person(): #class for new users
-    def __init__(self, gender, bio, password, birthYear, prefPartnerBirthYear, partnerGender, collegeYear, username, major, email,  Q1, Q2, Q3, Q4, Q5, Q6, Q7, Q8, Q9, Q10, timestamp):
+    def __init__(self, gender, bio, password, birthYear, prefPartnerBirthYear, partnerGender, 
+                 collegeYear, username, major, email,  Q1, Q2, Q3, Q4, Q5, Q6, Q7, Q8, Q9, Q10, timestamp):
+                 #recent1, recent2, recent3, blockedlist):
         self.bio=bio
         self.Q1=Q1
         self.Q2=Q2
@@ -27,9 +29,12 @@ class person(): #class for new users
         self.birthYear=birthYear
         self.partnerGender=partnerGender
         self.collegeYear=collegeYear
-        self.prefPartnerBirthYear=prefPartnerBirthYear
-        self.blockList=[]
+        self.prefPartnerBirthYear=prefPartnerBirthYear        
         self.timestamp=timestamp
+        #self.recent1 = recent1
+        #self.recent2 = recent2
+        #self.recent3 = recent3
+        #self.blockList=[]
         
     def viewProfile(self, master): #view profile
         os.system('cls')
@@ -338,11 +343,16 @@ def load(student):
     collegeYear = " "
     prefPartnerBirthYear = " "
     timestamp=" "
+    blockedlist = []    
+    recent1 = " "
+    recent2 = " "
+    recent3 = " "
     read_file = open("output.txt", "r")
     vectorIndex = 0
     loadVector = read_file.read().splitlines()
     vectorSize = len(loadVector) - 1 
-    p1 = (gender, bio, password, birthYear, prefPartnerBirthYear, partnerGender, collegeYear, username, major, email,  Q1, Q2, Q3, Q4, Q5, Q6, Q7, Q8, Q9, Q10, timestamp)
+    p1 = (gender, bio, password, birthYear, prefPartnerBirthYear, partnerGender, collegeYear, username, major, email,  
+          Q1, Q2, Q3, Q4, Q5, Q6, Q7, Q8, Q9, Q10, timestamp)#, recent1, recent2, recent3, blockedlist)
 
     while vectorSize - vectorIndex > 0:
         with open('output.txt') as read_file:
@@ -388,7 +398,14 @@ def load(student):
             prePartnerBirthYear = loadVector[vectorIndex]
             vectorIndex +=1 
             timestamp = loadVector[vectorIndex]
-            vectorIndex+=1
+            
+            #while (loadVector[vectorIndex] != "end blockedlist"):
+            #    vectorIndex+=1
+            #    blockedlist.append(loadVector[vectorIndex])
+            
+            vectorIndex+=1        
+    
+                               
             p1 = person(gender, bio, password, birthYear, prefPartnerBirthYear, partnerGender, collegeYear, username, major, email,  Q1, Q2, Q3, Q4, Q5, Q6, Q7, Q8, Q9, Q10, timestamp)
             student.append(p1)
     if read_file is None:
@@ -418,6 +435,9 @@ def writeV(student):
                          str(student[i].collegeYear) + "\n" +
                          str(student[i].prefPartnerBirthYear) + "\n" +
                          str(student[i].timestamp) + "\n")
+        #for i in range(len(student.blocklist)):
+        #    write_file.write(str(student.blocklist[i])) + "\n" 
+        #write_file_write("end blockedlist" + "\n")
     write_file.close()              
         
 def login(loginUser, loginPass, student): #login to the database
@@ -492,13 +512,38 @@ def newUser(master, student, questions): #new user will enter in these choices a
         #writeV(student) will only work if we default the multiple choice beforehand
         master.destroy()
 
-def searchUser(student):
+def blockUser(student, master):
+    os.system('cls')
+    findUserName=input("Enter name of user you wish to block : ")
+    for i in range(0, len(student)):
+        if student[i].username == findUserName:
+            #userIn.blockedlist.append(findUserName)
+            return
+    print("User not found")
+    return
+
+def searchUser(student, master):
      os.system('cls')
      findUserName=input("Enter name of user you wish to search for: ")
      for i in range(0, len(student)):
          if student[i].username==findUserName:
-             student[i].viewProfile()
-             return
+             #write for loop for i in range(0, len(student[i].blockedList[i]
+             #implement block list and check if userIn.username == student[i].blockedList[i]
+             student[i].viewProfile(master)
+             
+             #if student[i].username != userIn.username:
+             #   if student[i].recent1 == " ":
+             #       student[i].recent1 == userIn.username
+             #   if student[i].recent2 == " ":
+             #       student[i].recent2 == userIn.username
+             #   if student[i].recent3 == " ":
+             #       student[i].recent3 == userIn.username
+
+             #   if student[i].recent1 != " " and student[i].recent2 != " " and student[i].recent3 != " ":
+             #       student[i].recent1 == student[i].recent2 
+             #       student[i].recent2 == student[i].recent3
+             #       student[i].recent3 == userIn.username               
+             return 
      print("User not found")
      return
 
@@ -570,7 +615,7 @@ def main(): #end of menu loop
     b=Button(master, text="Edit questions", command=lambda: userIn.editQuestion(questions), bg="navy", fg="orange")
     b.config(width=15)
     b.pack()
-    searchButton=Button(master, text="Search for user", command=lambda: searchUser(student), bg="navy", fg="orange")
+    searchButton=Button(master, text="Search for user", command=lambda: searchUser(student, master), bg="navy", fg="orange")
     searchButton.config(width=15)
     searchButton.pack()
     viewAnswersButton=Button(master, text="View answers", command=lambda: userIn.viewAnswers(questions), bg="navy", fg="orange")
