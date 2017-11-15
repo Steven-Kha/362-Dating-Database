@@ -56,6 +56,10 @@
 
 11/3: v2.0 Added windows for view answers, view matches, and view profile <- Kyle
 
+11/9: v2.1 Added blocklist and recent views <-Steven
+
 11/9: v2.2 Added report button and made questions worth more than others <- Kyle
 
 11/15: v2.3 Massive update, command line no longer needed, gui used for everything. <-Kyle
+
+11/15: v2.4 Added buttons matches to view profile of matches <-Kyle
