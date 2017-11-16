@@ -19,9 +19,9 @@ male
 Senior
  
 2017-11-08
-#need
-#three
 #lines for recent users
+kylejulien
+kylejulien
 test
 Yes
 Yes
@@ -43,9 +43,9 @@ female
 Senior
  
 2017-11-15
-#recent user 1
-#recent user 2
-#recent user 3 are all after the date
+
+
+
 My name is Luis. I work at a department store taking out product.
 Yes
 No
@@ -89,7 +89,7 @@ Senior
  
 2017/11/08
 I like to eat apples and bananas
-Yes
+ 
 No
 No
 Yes
@@ -110,10 +110,10 @@ Junior
  
 2017-11-08
 I like playing basketball and 2k!
-No
+ 
 No
 Yes
-No
+ 
 Yes
 No
 No
@@ -134,10 +134,10 @@ I like to listen to rap music and respecting women
 Yes
 Yes
 Yes
+ 
 Yes
 Yes
-Yes
-Yes
+ 
 Yes
 Yes
 Yes
@@ -158,10 +158,10 @@ Yes
 No
 No
 No
-Yes
+ 
 No
 Yes
-Yes
+ 
 elizabethchen@csu.fullerton.edu
 HelloWorld
 MQ
@@ -182,10 +182,10 @@ Yes
 No
 Yes
 Yes
-No
+ 
 newuse@csu.fullerton.edu
 testPass
-testUser
+ 
 male
 Computer Science
  
@@ -206,7 +206,7 @@ No
 No
 tree@csu.fullerton.edu
 12345
-tree
+ 
 m
 trees
  
@@ -257,7 +257,7 @@ sophmore
  
 1993
 looking for friends
-Yes
+ 
 No
 Yes
 No
@@ -278,10 +278,10 @@ junior
  
 1993
 i don't like small dogs, big dogs are ok
-No
+ 
 Yes
 No
-Yes
+ 
 No
 Yes
 No
@@ -302,10 +302,10 @@ i like basketball
 Yes
 No
 Yes
-No
+ 
 Yes
 No
-Yes
+ 
 No
 Yes
 No
@@ -326,10 +326,10 @@ No
 Yes
 No
 Yes
-No
+ 
 Yes
 No
-Yes
+ 
 jennyx@csu.fullerton.edu
 password1
 jennycat
@@ -350,10 +350,10 @@ No
 Yes
 No
 Yes
-No
+ 
 sarahg@csu.fullerton.edu
 password1
-sarag
+ 
 female
 Computer Science
  
@@ -374,7 +374,7 @@ No
 Yes
 robertaS@csu.fullerton.edu
 password1
-roberta
+ 
 female
 Engineering
  
