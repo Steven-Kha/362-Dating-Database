@@ -65,3 +65,5 @@
 11/15: v2.4 Added buttons matches to view profile of matches <-Kyle
 
 11/15: v2.4b Added 3 recent users. But uses older Gui code <-Steven
+
+11/15: v2.5 Added Contact us and FAQ <-Kyle
