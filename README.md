@@ -67,3 +67,5 @@
 11/15: v2.4b Added 3 recent users. But uses older Gui code <-Steven
 
 11/15: v2.5 Added Contact us and FAQ <-Kyle
+
+11/17: v2.6 Added color to all of the buttons <-Kyle
