@@ -1,11 +1,15 @@
 import os
 import time
 import datetime
+from random import SystemRandom
+from random import*
+import random
 from tkinter import *
 import yagmail
 from PIL import ImageTk, Image
 import urllib
 import urllib.request
+import string
 
 
 class person(): #class for new users
@@ -824,6 +828,9 @@ def writeV(student):
             #write_file.write(str(student.blockedList[i]))+"\n"
             #write_file_write("end blockedList"+"\n")
     write_file.close()              
+def randomStr():
+    letters=string.ascii_lowercase
+    return ''.join(random.choice(letters) for i in range(10))
         
 def forgotPassword(student):
     global e
@@ -837,12 +844,16 @@ def forgotPassword(student):
     e.grid(row=0, column=1)
     #e.pack()
     #e.focus_set()
-    but=Button(root, text="Submit", command=lambda: forgottenPassword(student, root,e), bg="navy", fg="orange").grid(row=1, sticky=S)
-    def forgottenPassword(student, root,e):
+    but=Button(root, text="Submit", bg="navy", fg="orange")
+    but['command']=lambda: forgottenPassword(student, root,e, but)
+    but.grid(row=1, sticky=S)
+    def forgottenPassword(student, root,e, but):
         forgot=e.get()
         e.grid_forget()
+        but.destroy()
         for i in range(0, len(student)):
             if forgot==student[i].username:
+                student[i].password=randomStr()
                 forgot=student[i]
                 yagmail.SMTP("titanmatchteam@gmail.com").send(forgot.email, "Forgotten password", "Hey there! Here is your password: " + forgot.password)
                 label1=Label(root, text="An email has been sent with your password")
