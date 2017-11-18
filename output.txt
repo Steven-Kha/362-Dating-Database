@@ -1,4 +1,4 @@
-test
+test #please note that adding new user with the tkinter.py will require to restart visual studios everytime
 1
 1
 1
@@ -19,10 +19,10 @@ male
 Senior
  
 2017-11-08
-None
-None
-None
-qUiCK
+None #while loops needs to see None. So recent has to be updated to None
+None #this is recent2
+None #this is recent3
+qUiCK #this is how the blockedList reading ends
 test
 1
 1
