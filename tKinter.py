@@ -419,14 +419,9 @@ def load(student):
                 if loadVector[vectorIndex] != "qUiCK":                  
                     blockedList.append(loadVector[vectorIndex])
                     vectorIndex += 1
-                    print (username)
-                    print (bio)                    
-                    print (blockedList)
+                    
                     if loadVector[vectorIndex] == 'qUiCK':
-                        print ("finished!")
-                        print ("index:")
-                        print (vectorIndex)
-                        print ("size:")
+                       
                         print (vectorSize)
                         finished = True
             
@@ -436,10 +431,7 @@ def load(student):
             p1 = person(gender, bio, password, birthYear, prefPartnerBirthYear, partnerGender, collegeYear, username, 
                         major, email,  Q1, Q2, Q3, Q4, Q5, Q6, Q7, Q8, Q9, Q10, timestamp, recent1, recent2, recent3, blockedList)
             student.append(p1)
-            print ("index:")
-            print (vectorIndex)
-            print ("size:")
-            print (vectorSize)           
+                   
 
     else:
         read_file.close()
@@ -540,7 +532,7 @@ def newUser(master, student, questions): #new user will enter in these choices a
                 os.system('cls')
         blockedList = []
         sNewUser=person(sGender, sBio, sPassword, sBirthYear, sPrefPartnerBirthYear, sPartnerGender, sCollegeYear, sUserName, sMajor, sEmail, answers[1], answers[2], answers[3], answers[4], answers[5], answers[6], answers[7], answers[8], answers[9],answers[10], datetime.datetime.fromtimestamp(timeStamp).strftime('%Y-%m-%d'),
-                        None, None, None, blockedList)
+                        None, None, None, blockedList) #we need to default recent to None for blockedUser I/O to work
         student.append(sNewUser)
         userIn = student[len(student)-1]
         writeV(student)
@@ -548,7 +540,7 @@ def newUser(master, student, questions): #new user will enter in these choices a
     elif choice[0].lower() == 'n':
         blockedList = []
         sNewUser=person(sGender, sBio, sPassword, sBirthYear, sPrefPartnerBirthYear, sPartnerGender, sCollegeYear, sUserName, sMajor, sEmail,None,None,None,None,None,None,None,None,None,None, datetime.datetime.fromtimestamp(timeStamp).strftime('%Y-%m-%d'),
-                        None, None, None, blockedList)
+                        None, None, None, blockedList) #we need to default recent to None for blockedUser I/O to work
         student.append(sNewUser)
         userIn = student[len(student)-1]
         #writeV(student) will only work if we default the multiple choice beforehand
