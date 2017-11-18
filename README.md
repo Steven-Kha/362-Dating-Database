@@ -71,3 +71,5 @@
 11/17: v2.6 Added color to all of the buttons <-Kyle
 
 11/18: v2.4c Blocked users with file I/O works. I updated the version from 2.4b from 11/15 that implemented recent users. Its a separate py file to not interfere with the current py file we have now.  <- Steven
+
+11/18: v2.7: Added temporary password for forgot password
