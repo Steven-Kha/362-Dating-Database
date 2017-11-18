@@ -69,3 +69,5 @@
 11/15: v2.5 Added Contact us and FAQ <-Kyle
 
 11/17: v2.6 Added color to all of the buttons <-Kyle
+
+11/18: v2.4c I updated the version from 2.4b from 11/15 that implemented recent users. Its a separate py file to not interfere with the current py file we have now. 
