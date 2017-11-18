@@ -11,7 +11,6 @@ import urllib
 import urllib.request
 import string
 
-
 class person(): #class for new users
     def __init__(self, gender, bio, password, birthYear, prefPartnerBirthYear, partnerGender, collegeYear, username, major, email,  Q1, Q2, Q3, Q4, Q5, Q6, Q7, Q8, Q9, Q10, timestamp, recent1, recent2, recent3): #recent1, recent2, recent3, blockedList):
         self.bio=bio
@@ -854,6 +853,7 @@ def forgotPassword(student):
         for i in range(0, len(student)):
             if forgot==student[i].username:
                 student[i].password=randomStr()
+                writeV(student)
                 forgot=student[i]
                 yagmail.SMTP("titanmatchteam@gmail.com").send(forgot.email, "Forgotten password", "Hey there! Here is your password: " + forgot.password)
                 label1=Label(root, text="An email has been sent with your password")
