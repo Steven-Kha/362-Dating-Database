@@ -74,4 +74,4 @@
 
 11/18: v2.7: Added temporary password for forgot password
 
-11/18: v2.8: blockedlist py and txt works now. Should implement in message user and get matches next
+11/18: v2.8: blockedlist py and txt works now. Should implement in message user and get matches next <- Steven
