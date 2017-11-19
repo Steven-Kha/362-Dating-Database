@@ -19,8 +19,8 @@ male
 Senior
  
 2017-11-08
-#lines for recent users
-kylejulien
+None
+skha
 kylejulien
 test
 Yes
@@ -42,10 +42,10 @@ Comp Sci
 female
 Senior
  
-2017-11-15
-
-
-
+2017-11-18
+ 
+ 
+ 
 My name is Luis. I work at a department store taking out product.
 Yes
 No
@@ -67,6 +67,9 @@ male
 Junior
  
 2017/11/01
+None
+None
+None
 I like playing video games and messing with computers!
 No
 No
@@ -88,6 +91,9 @@ female
 Senior
  
 2017/11/08
+None
+None
+None
 I like to eat apples and bananas
  
 No
@@ -108,7 +114,10 @@ Computer Science
 female
 Junior
  
-2017-11-08
+2017-11-18
+ 
+ 
+ 
 I like playing basketball and 2k!
  
 No
@@ -130,6 +139,9 @@ female
 Senior
  
 2017/11/07
+None
+None
+None
 I like to listen to rap music and respecting women
 Yes
 Yes
@@ -151,6 +163,9 @@ female
 Sophomore
  
 2017/11/07
+None
+None
+None
 I sell propane and propane accessories
 No
 No
@@ -172,6 +187,9 @@ female
 Grad
  
 2017/11/08
+None
+None
+None
 this is a bio
 Yes
 Yes
@@ -193,6 +211,9 @@ f
 Senior
  
 2017/10/11
+None
+None
+None
 ok
 No
 No
@@ -206,7 +227,7 @@ No
 No
 tree@csu.fullerton.edu
 12345
- 
+tree 
 m
 trees
  
@@ -214,6 +235,9 @@ f
 3
  
 2017-11-08
+None
+None
+None
 i wrote a bio
 Yes
 No
@@ -232,9 +256,12 @@ female
 Art
  
 male
-freshman
+freshman 
  
-1993
+2017-11-08
+None
+None
+None
 i like to take long walks
 No
 Yes
@@ -253,9 +280,12 @@ female
 Business
  
 female
-sophmore
+sophmore 
  
-1993
+2017-11-08
+None
+None
+None
 looking for friends
  
 No
@@ -274,9 +304,12 @@ female
 Chinese
  
 male
-junior
+junior 
  
-1993
+2017-11-08
+None
+None
+None
 i don't like small dogs, big dogs are ok
  
 Yes
@@ -297,7 +330,10 @@ Engineering
 female
 senior
  
-1993
+2017-11-08
+None
+None
+None
 i like basketball
 Yes
 No
@@ -316,9 +352,12 @@ female
 Computer Science
  
 male
-freshman
+freshman 
  
-1993
+2017-11-08
+None
+None
+None
 I'll fill this out more later
 No
 Yes
@@ -337,9 +376,12 @@ female
 Business
  
 female
-sophmore
+sophmore 
  
-1993
+2017-11-08
+None
+None
+None
 I'm a super busy person and enjoy my sleep
 Yes
 No
@@ -358,9 +400,12 @@ female
 Computer Science
  
 male
-junior
+junior 
  
-1993
+2017-11-08
+None
+None
+None
 I enjoy drinking coffee
 No
 Yes
@@ -379,6 +424,9 @@ female
 Engineering
  
 female
-senior
+senior 
  
-1993
+2017-11-08
+None
+None
+None
