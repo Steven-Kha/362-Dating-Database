@@ -18,10 +18,11 @@ Computer Science
 male
 Senior
  
-2017-11-08
-skha
+2017-11-19
+ 
+ 
+ 
 kylejulien
-Nibel
 qUiCK
 test
 Yes
@@ -43,11 +44,13 @@ Comp Sci
 female
 Senior
  
-2017-11-18
+2017-11-19
  
  
-
-qUiCK 
+ 
+Nibel
+kumiko
+qUiCK
 My name is Luis. I work at a department store taking out product.
 Yes
 No
@@ -72,7 +75,7 @@ Junior
 None
 None
 None
-qUiCK
+qUiCK 
 I like playing video games and messing with computers!
 No
 No
@@ -93,41 +96,16 @@ Computer Science
 female
 Senior
  
-2017/11/08
-None
-None
-None
-qUiCK
-I like to eat apples and bananas
- 
-No
-No
-Yes
-Yes
-No
-Yes
-Yes
-Yes
-Yes
-stevenvkha@csu.fullerton.edu
-1234
-skha
-male
-Computer Science
- 
-female
-Junior
- 
 2017-11-18
  
  
-
-qUiCK 
-I like playing basketball and 2k!
  
+qUiCK
+I like playing basketball and 2k!
+Yes 
 No
 Yes
- 
+No 
 Yes
 No
 No
@@ -143,11 +121,12 @@ Computer Science
 female
 Senior
  
-2017/11/07
-None
-None
-None
+2017-11-18
+ 
+ 
+ 
 Nibel
+bigSmokey
 qUiCK
 I like to listen to rap music and respecting women
 Yes
@@ -169,10 +148,13 @@ Women's Studies
 female
 Sophomore
  
-2017/11/07
-None
-None
-None
+2017-11-19
+ 
+ 
+ 
+Nibel
+kumiko
+alicex
 qUiCK
 I sell propane and propane accessories
 No
@@ -212,7 +194,7 @@ Yes
  
 newuse@csu.fullerton.edu
 testPass
- 
+tree 
 male
 Computer Science
  
@@ -220,31 +202,6 @@ f
 Senior
  
 2017/10/11
-None
-None
-None
-qUiCK
-ok
-No
-No
-No
-No
-No
-No
-No
-No
-No
-No
-tree@csu.fullerton.edu
-12345
-tree 
-m
-trees
- 
-f
-3
- 
-2017-11-08
 None
 None
 None
@@ -269,10 +226,11 @@ Art
 male
 freshman 
  
-2017-11-08
-None
-None
-None
+2017-11-19
+ 
+ 
+ 
+jaydiddy69
 qUiCK
 i like to take long walks
 No
@@ -473,7 +431,7 @@ Junior
  
  
  
-skha
+Arshifoo
 qUiCK
 420
 Yes
@@ -496,9 +454,60 @@ F
 1990
  
 2017-11-18
+None
+None
+None
+Nibel
+qUiCK
+hungry
+Yes
+Yes
+Yes
+Yes
+Yes
+Yes
+Yes
+Yes
+Yes
+Yes
+a@csu.fullerton.edu
+gator
+ally
+F
+ocean
+ 
+M
+senior
+ 
+2017-11-19
  
  
  
-Nibel #got blocked
-qUiCK #end of blockedlist
-#leave blank
+skha
+qUiCK
+Woo
+Yes
+Yes
+Yes
+Yes
+Yes
+Yes
+Yes
+Yes
+Yes
+Yes
+skha@csu.fullerton.edu
+FuckMan
+skha
+M
+CPSC
+ 
+F
+junior
+ 
+2017-11-19
+ 
+ 
+ 
+ally
+qUiCK
