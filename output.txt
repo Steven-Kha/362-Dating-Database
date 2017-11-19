@@ -19,9 +19,10 @@ male
 Senior
  
 2017-11-08
-None
 skha
 kylejulien
+Nibel
+qUiCK
 test
 Yes
 Yes
@@ -45,7 +46,8 @@ Senior
 2017-11-18
  
  
- 
+
+qUiCK 
 My name is Luis. I work at a department store taking out product.
 Yes
 No
@@ -70,6 +72,7 @@ Junior
 None
 None
 None
+qUiCK
 I like playing video games and messing with computers!
 No
 No
@@ -94,6 +97,7 @@ Senior
 None
 None
 None
+qUiCK
 I like to eat apples and bananas
  
 No
@@ -117,7 +121,8 @@ Junior
 2017-11-18
  
  
- 
+
+qUiCK 
 I like playing basketball and 2k!
  
 No
@@ -142,6 +147,8 @@ Senior
 None
 None
 None
+Nibel
+qUiCK
 I like to listen to rap music and respecting women
 Yes
 Yes
@@ -166,6 +173,7 @@ Sophomore
 None
 None
 None
+qUiCK
 I sell propane and propane accessories
 No
 No
@@ -190,6 +198,7 @@ Grad
 None
 None
 None
+qUiCK
 this is a bio
 Yes
 Yes
@@ -214,6 +223,7 @@ Senior
 None
 None
 None
+qUiCK
 ok
 No
 No
@@ -238,6 +248,7 @@ f
 None
 None
 None
+qUiCK
 i wrote a bio
 Yes
 No
@@ -262,6 +273,7 @@ freshman
 None
 None
 None
+qUiCK
 i like to take long walks
 No
 Yes
@@ -286,6 +298,7 @@ sophmore
 None
 None
 None
+qUiCK
 looking for friends
  
 No
@@ -310,6 +323,7 @@ junior
 None
 None
 None
+qUiCK
 i don't like small dogs, big dogs are ok
  
 Yes
@@ -334,6 +348,7 @@ senior
 None
 None
 None
+qUiCK
 i like basketball
 Yes
 No
@@ -358,6 +373,7 @@ freshman
 None
 None
 None
+qUiCK
 I'll fill this out more later
 No
 Yes
@@ -382,6 +398,7 @@ sophmore
 None
 None
 None
+qUiCK
 I'm a super busy person and enjoy my sleep
 Yes
 No
@@ -406,6 +423,7 @@ junior
 None
 None
 None
+qUiCK
 I enjoy drinking coffee
 No
 Yes
@@ -430,3 +448,57 @@ senior
 None
 None
 None
+qUiCK
+Hero for fun
+Yes
+Yes
+Yes
+No
+Yes
+Yes
+Yes
+Yes
+Yes
+Yes
+123@csu.fullerton.edu
+321
+Nibel
+M
+Hero
+ 
+F
+Junior
+ 
+2017-11-18
+ 
+ 
+ 
+skha
+qUiCK
+420
+Yes
+Yes
+Yes
+Yes
+Yes
+Yes
+Yes
+Yes
+Yes
+Yes
+klay@csu.fullerton.edu
+dubs
+bigSmokey
+M
+senior
+ 
+F
+1990
+ 
+2017-11-18
+ 
+ 
+ 
+Nibel #got blocked
+qUiCK #end of blockedlist
+#leave blank
