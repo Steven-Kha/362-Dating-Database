@@ -73,3 +73,5 @@
 11/18: v2.4c Blocked users with file I/O works. I updated the version from 2.4b from 11/15 that implemented recent users. Its a separate py file to not interfere with the current py file we have now.  <- Steven
 
 11/18: v2.7: Added temporary password for forgot password
+
+11/18: v2.8: blockedlist py and txt works now. Should implement in message user and get matches next
