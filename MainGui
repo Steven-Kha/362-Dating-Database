@@ -324,11 +324,11 @@ class person(): #class for new users
         matches=[]
         buttons=[]
         for i in range(0,len(students)):
-            points=0
+            points=0            
             if self.username==students[i].username:
                 continue
             if self.partnerGender!=students[i].gender:
-                continue
+                continue            
             if self.Q1==students[i].Q1:
                 points+=3
             if self.Q2==students[i].Q2:
@@ -349,6 +349,9 @@ class person(): #class for new users
                 points+=1
             if self.Q10==students[i].Q10:
                 points+=1.5
+            for j in range(0, len(students[i].blockedList)):
+                 if students[i].blockedList[j] == userIn.username:
+                     points = 0
             if points>=10:
                 matches.append(students[i].username)
                 buttons.append(student[i])
@@ -385,6 +388,10 @@ class person(): #class for new users
             but.destroy()
             for i in range(0,len(student)):
                 if userMsg==student[i].username:
+                    for j in range(0, len(student[i].blockedList)):
+                        if student[i].blockedList[j] == userIn.username:
+                            print("User not found" + "\n" + "...")
+                            return
                     userMsg=student[i]
                     #t=Text(root)
                     #t.insert(END, "Enter your message: ")
@@ -744,7 +751,7 @@ def load(student):
             blockedList = []
             finished = False
             bio = loadVector[vectorIndex]
-            print (loadVector[vectorIndex])
+            #print (loadVector[vectorIndex])
             vectorIndex+=1
             Q1 = loadVector[vectorIndex]
             vectorIndex+=1
@@ -790,16 +797,26 @@ def load(student):
             vectorIndex += 1
             recent2 = loadVector[vectorIndex]
             vectorIndex += 1
-            recent3 = loadVector[vectorIndex]        
+            recent3 = loadVector[vectorIndex]
+            #print ("the last thing before")
+            #print (loadVector[vectorIndex])
             vectorIndex = vectorIndex + 1
-            if loadVector[vectorIndex] == 'qUiCK':
-                print("won't get added to list! : )")           
-            print ("begin blockedList")          
+            #if loadVector[vectorIndex] == 'qUiCK':
+            #    print("won't get added to list! : )")           
+            #print ("begin blockedList")          
             while (loadVector[vectorIndex] != 'qUiCK' and finished != True):
                 if loadVector[vectorIndex] != "qUiCK":                  
                     blockedList.append(loadVector[vectorIndex])
-                    vectorIndex += 1                
+                    vectorIndex += 1
+                    #print (username)
+                    #print (bio)                    
+                    #print (blockedList)
                     if loadVector[vectorIndex] == 'qUiCK':
+                        #print ("finished!")
+                        #print ("index:")
+                        #print (vectorIndex)
+                        #print ("size:")
+                        #print (vectorSize)
                         finished = True
             
             if loadVector[vectorIndex] == "qUiCK":    
@@ -807,7 +824,11 @@ def load(student):
                                
             p1 = person(gender, bio, password, birthYear, prefPartnerBirthYear, partnerGender, collegeYear, username, 
                         major, email,  Q1, Q2, Q3, Q4, Q5, Q6, Q7, Q8, Q9, Q10, timestamp, recent1, recent2, recent3, blockedList)
-            student.append(p1)             
+            student.append(p1)
+            #print ("index:")
+            #print (vectorIndex)
+            #print ("size:")
+            #print (vectorSize)           
 
     else:
         read_file.close()
@@ -989,10 +1010,13 @@ def newUser(master, student, questions): #new user will enter in these choices a
         answers[9]=i.get()
         answers[10]=j.get()
         blockedList = []
+        recent1 = "None"
+        recent2 = "None"
+        recent3 = "None"
         sNewUser=person(sGender, sBio, sPassword, sBirthYear, sPrefPartnerAge, sPartnerGender, sCollegeYear, sUserName, 
                         sMajor, sEmail, answers[1], answers[2], answers[3], answers[4], answers[5], answers[6], answers[7], 
                         answers[8], answers[9],answers[10], datetime.datetime.fromtimestamp(timeStamp).strftime('%Y-%m-%d'),
-                        None, None, None, blockedList)
+                        recent1, recent2, recent3, blockedList)
         student.append(sNewUser)
         
         userIn=student[len(student)-1]
