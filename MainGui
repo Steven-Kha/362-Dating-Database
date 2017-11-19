@@ -298,7 +298,21 @@ class person(): #class for new users
         #t.insert(END, self.recent2)
         #t.insert(END, self.recent3)
         #t.grid(row=0, sticky=N)
+###We need this loop
+#def blockUser(student, master):
+#    os.system('cls')
+#    findUserName=input("Enter name of user you wish to block : ")
+#    for i in range(0, len(student)):
+#        if student[i].username == findUserName:            
+#            userIn.blockedList.append(findUserName)
+#            writeV(student)
+#            #keep appending to not lose blocked users
+#            print("User has been blocked.")
+#            return
+#    print("User not found")
+#    return
 
+### One below doesn't have loop and may be causing the wrong person's blocked list to be appended
     def blockUsers(self, student):
         def actualBlock(self, student, label1, e, but, root):
             blockUser=e.get()
