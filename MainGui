@@ -298,39 +298,27 @@ class person(): #class for new users
         #t.insert(END, self.recent2)
         #t.insert(END, self.recent3)
         #t.grid(row=0, sticky=N)
-###We need this loop
-#def blockUser(student, master):
-#    os.system('cls')
-#    findUserName=input("Enter name of user you wish to block : ")
-#    for i in range(0, len(student)):
-#        if student[i].username == findUserName:            
-#            userIn.blockedList.append(findUserName)
-#            writeV(student)
-#            #keep appending to not lose blocked users
-#            print("User has been blocked.")
-#            return
-#    print("User not found")
-#    return
 
-### One below doesn't have loop and may be causing the wrong person's blocked list to be appended
-    def blockUsers(self, student):
-        def actualBlock(self, student, label1, e, but, root):
-            blockUser=e.get()
-            label1.grid_forget()
-            e.grid_forget()
-            but.destroy()
-            self.blockedList.append(blockUser)
-            writeV(student)
-            label1=Label(root, text="Blocked user")
-            label1.grid()
+    def blockUsers(self, student):        
         root=Toplevel()
         label1=Label(root, text="Enter the name of the user you want to block: ")
         label1.grid(row=0, sticky=S)
         e=Entry(root)
         e.grid(row=1, sticky=S)
         but=Button(root, text="Submit", bg="navy", fg="orange")
-        but['command']=lambda: actualBlock(self, student, label1, e, but, root)
+        but['command']=lambda: actualBlock(student, root, e, but, label1)
         but.grid(row=2, sticky=S)
+        def actualBlock(student, root, e, but, label1):
+            blockUser=e.get()
+            label1.grid_forget()
+            e.grid_forget()
+            but.destroy()
+            for i in range(0, len(student)):
+                if student[i].username==blockUser:                
+                    userIn.blockedList.append(blockUser)            
+                    writeV(student)
+            label1=Label(root, text="Blocked user")
+            label1.grid()
 
     def getMatches(self, students): 
         os.system('cls')
@@ -342,6 +330,8 @@ class person(): #class for new users
             if self.username==students[i].username:
                 continue
             if self.partnerGender!=students[i].gender:
+                continue
+            if self.gender != students[i].partnerGender:
                 continue            
             if self.Q1==students[i].Q1:
                 points+=3
