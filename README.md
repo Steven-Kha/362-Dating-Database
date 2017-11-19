@@ -75,3 +75,5 @@
 11/18: v2.7: Added temporary password for forgot password
 
 11/18: v2.8: blockedlist py and txt works now. Should implement in message user and get matches next <- Steven
+
+11/18: v2.8a: bug in blocked list where the person below in file io is getting blocked list appended. Read line 301 for possible fix
