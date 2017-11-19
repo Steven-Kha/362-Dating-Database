@@ -57,7 +57,6 @@ class person(): #class for new users
         global findPassword
         
     def viewProfile(self): #view profile
-        os.system('cls')
         root=Toplevel()
         root.title(self.username+"'s profile: \n")
         #t=Text(root)
@@ -183,7 +182,7 @@ class person(): #class for new users
         for i in range(0, len(questions)):
             print(str((i+1))+". "+questions[i])
         change=input("Which question number would you like to change?\n")
-        os.system('cls')
+         
         change=int(change)
         if change==1:
             print(questions[0])
@@ -249,7 +248,7 @@ class person(): #class for new users
             print("Invalid question number")
 
     def viewAnswers(self, questions): #view answers
-        os.system('cls')
+         
         print(self.Q1)
         root=Toplevel()
         t=Text(root)
@@ -277,22 +276,22 @@ class person(): #class for new users
 
     def showRecentViews(self, student):
         print(userIn.recent1)
-        if userIn.recent1!=" ":
+        if userIn.recent1!=None:
             root=Toplevel()
             label1=Label(root, text="Here's who's viewed you since you last logged in!")
             label1.grid(row=0, sticky=S)
-            if userIn.recent1!= " ":
+            if userIn.recent1!= None:
                 label2=Label(root, text=userIn.recent1)
                 label2.grid(row=1, sticky=S)
-            if userIn.recent2!= " ":
+            if userIn.recent2!= None:
                 label3=Label(root, text=userIn.recent2)
                 label3.grid(row=2, sticky=S)
-            if userIn.recent3!=" ":
+            if userIn.recent3!=None:
                 label4=Label(root, text=userIn.recent3)
                 label4.grid(row=3, sticky=S)
-            self.recent1=" "
-            self.recent2=" "
-            self.recent3=" "
+            self.recent1=None
+            self.recent2=None
+            self.recent3=None
         #t.insert(END, "Here's who recently viewed your profile!")
         #t.insert(END, self.recent1)
         #t.insert(END, self.recent2)
@@ -319,9 +318,33 @@ class person(): #class for new users
                     writeV(student)
             label1=Label(root, text="Blocked user")
             label1.grid()
+            
+    def unblockUsers(self, student):
+        root=Toplevel()
+        label1=Label(root, text="Enter the name of the user you want to unblock: ")
+        label1.grid(row=0, sticky=S)
+        e=Entry(root)
+        e.grid(row=1, sticky=S)
+        but=Button(root, text="Submit", bg="navy", fg="orange")
+        but['command']=lambda: actualUnblock(student, root, e, but, label1)
+        but.grid(row=2, sticky=S)
+        def actualUnblock(student, root, e, but, label1):
+            unblockUser=e.get()
+            label1.grid_forget()
+            e.grid_forget()
+            but.destroy()
+            if unblockUser not in userIn.blockedList:
+                label1=Label(root, text="User not in block list")
+                label1.grid(row=0, sticky=S)
+                return
+            print(unblockUser)
+            userIn.blockedList.remove(unblockUser)
+            writeV(student)
+            label1=Label(root, text="Unblocked")
+            label1.grid(row=0, sticky=S)
 
     def getMatches(self, students): 
-        os.system('cls')
+         
         root=Toplevel()
         matches=[]
         buttons=[]
@@ -433,7 +456,7 @@ class person(): #class for new users
         but.grid(row=2, sticky=S)
 
     def deactivateProfile(self, student, master):
-        os.system('cls')
+         
         master.withdraw()
         root=Toplevel()
         #t=Text(root)
@@ -452,7 +475,7 @@ class person(): #class for new users
         return
 
     def editProfile(self): #change these from being pack
-        os.system('cls')
+         
         editProf=Toplevel()
         def editUsername(self):
             #t=Text(root)
@@ -1103,7 +1126,7 @@ def newUser(master, student, questions): #new user will enter in these choices a
     return
 
 def searchUser(student, master): 
-     os.system('cls')
+      
      root=Toplevel()
      #t=Text(root)
      #t.insert(END, "Enter the name of the user you wish to search for: ")
@@ -1120,30 +1143,32 @@ def searchUser(student, master):
         findUname=e.get()
         but.destroy()
         e.grid_forget()
-        label1.destroy()
-        root.destroy()
+        label1.grid_forget()
         #t.pack_forget()
         for i in range(0, len(student)):
             if student[i].username==findUname:
                 for j in range(0, len(student[i].blockedList)):
                  if student[i].blockedList[j] == userIn.username:
-                     print("User not found" + "\n" + "...")
+                     label1=Label(root, text="User not found.")
+                     label1.grid(row=0, sticky=S)
                      return
+                root.destroy()
                 student[i].viewProfile()
+                print("Here: "+student[i].recent1)
                 if student[i].username!=userIn.username:
-                    if student[i].recent1==" ":
+                    if student[i].recent1==None:
                         student[i].recent1==userIn.username
                         writeV(student)
                         return
-                    if student[i].recent2==" ":
+                    if student[i].recent2==None:
                         student[i].recent2=userIn.username
                         writeV(student)
                         return
-                    if student[i].recent3==" ":
+                    if student[i].recent3==None:
                         student[i].recet3=userIn.username
                         writeV(student)
                         return
-                    if student[i].recent1 != " " and student[i].recent2 != " " and student[i].recent3 != " ":
+                    if student[i].recent1 != None and student[i].recent2 != None and student[i].recent3 != None:
                         student[i].recent1=student[i].recent2
                         student[i].recent2=student[i].recent3
                         student[i].recent3=userIn.username
@@ -1182,7 +1207,7 @@ def returningUser(master, student):
                   userIn=student[i]
        root.destroy()
        master.destroy()
-       os.system('cls')
+        
        return
     return
 def contactUs(student):
@@ -1324,6 +1349,9 @@ editProfileButton.pack()
 blockButton=Button(master, text="Block user", command=lambda: userIn.blockUsers(student), bg="navy", fg="orange")
 blockButton.config(width=15)
 blockButton.pack()
+unblockButton=Button(master, text="Unblock user", command=lambda: userIn.unblockUsers(student), bg="navy", fg="orange")
+unblockButton.config(width=15)
+unblockButton.pack()
 contactUsButton=Button(master, text="Problem?", command=lambda: contactUs(student), bg="navy", fg="orange")
 contactUsButton.config(width=15)
 contactUsButton.pack()
