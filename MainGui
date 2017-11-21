@@ -313,7 +313,12 @@ class person(): #class for new users
             e.grid_forget()
             but.destroy()
             for i in range(0, len(student)):
-                if student[i].username==blockUser:                
+                if student[i].username==blockUser:
+                    for j in range(0, len(userIn.blockedList)):
+                        if blockUser == userIn.blockedList[j]:                    
+                            label1=Label(root, text = "Already blocked")
+                            label1.grid()
+                            return
                     userIn.blockedList.append(blockUser)            
                     writeV(student)
             label1=Label(root, text="Blocked user")
