@@ -83,3 +83,5 @@ As a user, I want to block someone so they can never send me a message.
 As a user, I wanto to block someone so they can never find me in get matches. <- Steven
 
 11/19: v2.9.1: Added unblock button
+
+11/20: v2.9.2: Fixed a couple bugs
