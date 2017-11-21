@@ -407,11 +407,12 @@ class person(): #class for new users
 
     def sendMessage(self, student, master):
         root=Toplevel()
-        def getUsername(self, root, but, label1):
+        def getUsername(self, root, but, label1, e):
             global f
             userMsg=e.get()
             #t.pack_forget()
             label1.grid_forget()
+            e.grid_forget()
             but.destroy()
             for i in range(0,len(student)):
                 if userMsg==student[i].username:
@@ -444,6 +445,7 @@ class person(): #class for new users
             #t.insert(END, "Message sent successfully\n")
             #t.pack()
             Label(root, text="Message sent successfully\n").grid(row=0, sticky=S)
+            return
         #t=Text(root)
         #t.insert(END, "Enter the name of the user you would like to search for")
         #t.pack()
@@ -452,8 +454,9 @@ class person(): #class for new users
         e=Entry(root)
         e.grid(row=1, sticky=S)
         but=Button(root, text="Submit", bg="navy", fg="orange")
-        but['command']=lambda: getUsername(self, root, but, label1)
+        but['command']=lambda: getUsername(self, root, but, label1, e)
         but.grid(row=2, sticky=S)
+        return
 
     def deactivateProfile(self, student, master):
          
@@ -1218,9 +1221,10 @@ def contactUs(student):
         t.pack()
         return
     def contactus(student):
-        def sendEmail(student, e, label1):
+        def sendEmail(student, e, label1, but):
             contactEmail=e.get()
             e.grid_forget()
+            but.grid_forget()
             label1.grid_forget()
             yagmail.SMTP("titanmatchteam@gmail.com").send("titanmatchteam@gmail.com", "Message sent by "+userIn.username, contactEmail)
             label1=Label(root, text="Email sent")
@@ -1231,7 +1235,8 @@ def contactUs(student):
         label1.grid(row=0, sticky=S)
         e=Entry(root)
         e.grid(row=1, sticky=S)
-        but=Button(root, text="Submit", command=lambda: sendEmail(student, e, label1), bg="navy", fg="orange")
+        but=Button(root, text="Submit", bg="navy", fg="orange")
+        but['command']=lambda: sendEmail(student, e, label1, but)
         but.grid(row=2, sticky=S)
         
     def reportUser(student):
@@ -1271,7 +1276,7 @@ def contactUs(student):
             #t.delete('1.0', END)
             for i in range(0, len(student)):
                 if choice==student[i].username:
-                    yagmail.SMTP("titanmatchteam@gmail.com").send("titanmatchteam@gmail.com", "Report filed by "+userIn.username, report)
+                    yagmail.SMTP("titanmatchteam@gmail.com").send("titanmatchteam@gmail.com", "Report filed by "+userIn.username+"on "+student[i].username, report)
                     label1=Label(root, text="Report successfully submitted")
                     label1.grid(row=0, sticky=S)
          #          t.insert(END, "Report successfully submitted")
