@@ -85,6 +85,7 @@ class person(): #class for new users
     def editQuestion(self, questions): #edit questions, maybe turn make them like the ones in new user, default value on option menu would be users current answer.
         def findChange(self, questions, root, but,a,b,c,d,e,f,g,h,x,y,label1,label2,label3,label4,label5,label6,label7,label8,label9,label10):
             Label(root, text="Success!").grid(row=10, sticky=S)
+            but.destroy()
             self.Q1=a.get()
             self.Q2=b.get()
             self.Q3=c.get()
@@ -362,29 +363,29 @@ class person(): #class for new users
             if self.gender != students[i].partnerGender:
                 continue            
             if self.Q1==students[i].Q1:
-                points+=3
+                points+=1
             if self.Q2==students[i].Q2:
-                points+=3
+                points+=1
             if self.Q3==students[i].Q3:
                 points+=1
             if self.Q4==students[i].Q4:
-                points+=2.5
+                points+=1
             if self.Q5==students[i].Q5:
-                points+=3
+                points+=1
             if self.Q6==students[i].Q6:
-                points+=1.5
+                points+=1
             if self.Q7==students[i].Q7:
-                points+=1.5
+                points+=1
             if self.Q8==students[i].Q8:
                 points+=1
             if self.Q9==students[i].Q9:
                 points+=1
             if self.Q10==students[i].Q10:
-                points+=1.5
+                points+=1
             for j in range(0, len(students[i].blockedList)):
-                 if students[i].blockedList[j] == userIn.username:
+                if students[i].blockedList[j] == userIn.username:
                      points = 0
-            if points>=10:
+            if points>=6:
                 matches.append(students[i].username)
                 buttons.append(student[i])
             if len(matches)>5:
@@ -394,6 +395,9 @@ class person(): #class for new users
         #    t.insert(END, i+'\n') #add button to click and view other profiles
         #t.pack()
         #if checklabel1==true:
+        print(*matches)
+        if len(matches)==0:
+            Label(root, text="No matches :(").grid(row=0, sticky=S)
         label1=Label(root, text=str(matches[0])).grid(row=0, sticky=S)
         but1=Button(root, text="Check them out!", command=lambda: buttons[0].viewProfile(), bg="navy", fg="orange").grid(row=0, column=1, sticky=E)
         label2=Label(root, text=str(matches[1])).grid(row=1, sticky=S)
@@ -1144,7 +1148,7 @@ def searchUser(student, master):
      e=Entry(root)
      e.grid(row=1, sticky=S)
      #e.focus_set()
-     but=Button(root, text="Submit")
+     but=Button(root, text="Submit", bg="navy", fg="orange")
      but['command']=lambda: findUserName(student, root, e, but, label1)
      but.grid(row=2, sticky=S)
      def findUserName(student,root, e, but, label1):
