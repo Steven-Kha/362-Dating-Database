@@ -1285,7 +1285,7 @@ def contactUs(student):
             #t.delete('1.0', END)
             for i in range(0, len(student)):
                 if choice==student[i].username:
-                    yagmail.SMTP("titanmatchteam@gmail.com").send("titanmatchteam@gmail.com", "Report filed by "+userIn.username+"on "+student[i].username, report)
+                    yagmail.SMTP("titanmatchteam@gmail.com").send("titanmatchteam@gmail.com", "Report filed by "+userIn.username+" on "+student[i].username, report)
                     label1=Label(root, text="Report successfully submitted")
                     label1.grid(row=0, sticky=S)
          #          t.insert(END, "Report successfully submitted")
