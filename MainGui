@@ -281,18 +281,19 @@ class person(): #class for new users
             root=Toplevel()
             label1=Label(root, text="Here's who's viewed you since you last logged in!")
             label1.grid(row=0, sticky=S)
-            if userIn.recent1!= None:
+            if userIn.recent1 is not None:
                 label2=Label(root, text=userIn.recent1)
                 label2.grid(row=1, sticky=S)
-            if userIn.recent2!= None:
+            if userIn.recent2 is not None:
                 label3=Label(root, text=userIn.recent2)
                 label3.grid(row=2, sticky=S)
-            if userIn.recent3!=None:
+            if userIn.recent3 is not None:
                 label4=Label(root, text=userIn.recent3)
                 label4.grid(row=3, sticky=S)
             self.recent1=None
             self.recent2=None
             self.recent3=None
+            writeV(student)
         #t.insert(END, "Here's who recently viewed your profile!")
         #t.insert(END, self.recent1)
         #t.insert(END, self.recent2)
@@ -441,6 +442,7 @@ class person(): #class for new users
                     but['command']=lambda: sendActualMessage(self, root, userMsg, but, f, label1)
                     but.grid(row=2, sticky=S)
                     return
+            Label(root, text="User not found").grid(row=0, sticky=S)
             #t.insert(END, "User not found")
             return
         def sendActualMessage(self, mroot, userMsg, but, f, label1):
@@ -1186,6 +1188,7 @@ def searchUser(student, master):
                         student[i].recent3=userIn.username
                 writeV(student)
                 return
+        Label(root, text="User not found").grid(row=0, sticky=S)    
         print("User not found")
         return
      return
@@ -1289,6 +1292,7 @@ def contactUs(student):
                     label1=Label(root, text="Report successfully submitted")
                     label1.grid(row=0, sticky=S)
          #          t.insert(END, "Report successfully submitted")
+            Label(root, text="User not found").grid(row=0, sticky=S)
     root=Toplevel()
     reportButton=Button(root, text="Report user", command=lambda: reportUser(student), bg="navy", fg="orange")
     reportButton.config(width=15)
