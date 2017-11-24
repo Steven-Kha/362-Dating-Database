@@ -87,3 +87,5 @@
 11/21: v2.9.2a: Blocked user rejects blocking someone already in the blocked list <-Steven
 
 11/22: v2.9.3: Fixed even more bugs <-Kyle
+
+11/24: v2.9.4: Added error messages to some functions <-Kyle
