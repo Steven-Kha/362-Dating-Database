@@ -90,4 +90,6 @@
 
 11/24: v2.9.4: Added error messages to some functions <-Kyle
 
-11/15: v2.9.5: Bug fixes <-Kyle
+11/25: v2.9.5: Bug fixes <-Kyle
+
+11/26: v2.9.6: More bug fixes and updated FAQ
