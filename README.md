@@ -92,4 +92,4 @@
 
 11/25: v2.9.5: Bug fixes <-Kyle
 
-11/26: v2.9.6: More bug fixes and updated FAQ
+11/26: v2.9.6: More bug fixes and updated FAQ <-Kyle
