@@ -18,11 +18,12 @@ Computer Science
 male
 Senior
  
-2017-11-19
- 
- 
- 
-kylejulien
+2017-11-27
+None
+None
+None
+Nibel
+skha
 qUiCK
 test
 Yes
@@ -44,12 +45,10 @@ Comp Sci
 female
 Senior
  
-2017-11-19
- 
- 
- 
-Nibel
-kumiko
+2017-11-27
+None
+None
+None
 qUiCK
 My name is Luis. I work at a department store taking out product.
 Yes
@@ -71,7 +70,7 @@ mechanical engineering
 male
 Junior
  
-2017/11/01
+2017-11-27
 None
 None
 None
@@ -125,8 +124,6 @@ Senior
  
  
  
-Nibel
-bigSmokey
 qUiCK
 I like to listen to rap music and respecting women
 Yes
@@ -152,9 +149,6 @@ Sophomore
  
  
  
-Nibel
-kumiko
-alicex
 qUiCK
 I sell propane and propane accessories
 No
@@ -181,31 +175,6 @@ None
 None
 None
 qUiCK
-this is a bio
-Yes
-Yes
-No
-No
-Yes
-Yes
-No
-Yes
-Yes
- 
-newuse@csu.fullerton.edu
-testPass
-tree 
-male
-Computer Science
- 
-f
-Senior
- 
-2017/10/11
-None
-None
-None
-qUiCK
 i wrote a bio
 Yes
 No
@@ -226,11 +195,11 @@ Art
 male
 freshman 
  
-2017-11-19
- 
- 
- 
-jaydiddy69
+2017-11-27
+None
+None
+None
+wicho
 qUiCK
 i like to take long walks
 No
@@ -431,7 +400,6 @@ Junior
  
  
  
-Arshifoo
 qUiCK
 420
 Yes
@@ -453,11 +421,10 @@ senior
 F
 1990
  
-2017-11-18
+2017-11-27
 None
 None
 None
-Nibel
 qUiCK
 hungry
 Yes
@@ -483,7 +450,6 @@ senior
  
  
  
-skha
 qUiCK
 Woo
 Yes
@@ -505,9 +471,9 @@ CPSC
 F
 junior
  
-2017-11-19
- 
- 
- 
-ally
+2017-11-27
+None
+None
+None
 qUiCK
+#keep this free
