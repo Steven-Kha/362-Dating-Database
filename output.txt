@@ -18,12 +18,10 @@ Computer Science
 male
 Senior
  
-2017-11-27
+2017-12-07
 None
 None
 None
-Nibel
-skha
 qUiCK
 test
 Yes
@@ -45,7 +43,7 @@ Comp Sci
 female
 Senior
  
-2017-11-27
+2017-12-07
 None
 None
 None
@@ -199,7 +197,6 @@ freshman
 None
 None
 None
-wicho
 qUiCK
 i like to take long walks
 No
@@ -471,9 +468,8 @@ CPSC
 F
 junior
  
-2017-11-27
+2017-12-07
 None
 None
 None
 qUiCK
-#keep this free
